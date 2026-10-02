@@ -18,7 +18,7 @@ const c=(count,mode)=>{const g=coding.groups.find(g=>g.count===count&&g.mode===m
 for(const count of [3,8,16])for(const mode of ['codemode','ptc'])for(const field of ['inputTokens','localWallMs'])assert.ok(c(count,'hybrid').medians[field]<c(count,mode).medians[field]);
 const replacements={
  ORDER_TASKS:n(order.attempts),HYBRID_TASKS:n(hybrid.tasks),CODING_TASKS:n(coding.tasks),CODING_PASSED:n(coding.passed),
- ORDER_TOOL_INPUT:['| 工具数 | 并行 Tool Calling 输入 | Codemode 输入 | 全量 PTC 输入 |','|---|---:|---:|---:|',...tools.map(t=>`| ${t} | ${n(o(12,t,'direct-batch','inputTokens'))} | ${n(o(12,t,'codemode','inputTokens'))} | ${n(o(12,t,'ptc','inputTokens'))} |`)].join('\n'),
+ ORDER_TOOL_INPUT:['| 工具数 | 并行 Tool Calling 输入 | Codemode 输入 | 全量 DSH PTC 输入 |','|---|---:|---:|---:|',...tools.map(t=>`| ${t} | ${n(o(12,t,'direct-batch','inputTokens'))} | ${n(o(12,t,'codemode','inputTokens'))} | ${n(o(12,t,'ptc','inputTokens'))} |`)].join('\n'),
  ORDER_CODE_SAVING:range(counts.map(count=>100*(1-o(count,60,'codemode','inputTokens')/o(count,60,'ptc','inputTokens')))),
  ORDER_LARGE_BATCH:n(o(48,18,'direct-batch','inputTokens')),ORDER_LARGE_CODE:n(o(48,18,'codemode','inputTokens')),ORDER_LARGE_PTC:n(o(48,18,'ptc','inputTokens')),
  ORDER_DATA_SAVING_CODE:(100*(1-o(48,18,'codemode','inputTokens')/o(48,18,'direct-batch','inputTokens'))).toFixed(1)+'%',
@@ -26,7 +26,7 @@ const replacements={
  ORDER_TIME_SAVING:range(latency),
  ORDER_HYBRID_TABLE:['| 订单数 / 60工具 | 输入 token：Codemode / PTC / 融合 | 耗时 ms：Codemode / PTC / 融合 |','|---|---:|---:|',...counts.map(count=>`| ${count} | ${['codemode','ptc','hybrid'].map(mode=>n(h(count,60,mode,'inputTokens'))).join(' / ')} | ${['codemode','ptc','hybrid'].map(mode=>n(h(count,60,mode,'localWallMs'))).join(' / ')} |`)].join('\n'),
  HYBRID_INPUT_SAVING:range(counts.map(count=>100*(1-h(count,60,'hybrid','inputTokens')/h(count,60,'ptc','inputTokens')))),
- CODING_TABLE:['| 模块数 | 路径 | 验收通过 | 模型轮数 | 输入 token | 耗时秒 |','|---|---|---:|---:|---:|---:|',...coding.groups.map(g=>`| ${g.count} | ${{codemode:'Codemode',ptc:'全量 PTC',hybrid:'融合'}[g.mode]} | ${g.passed}/3 | ${g.medians.modelRequests} | ${n(g.medians.inputTokens)} | ${(g.medians.localWallMs/1000).toFixed(2)} |`)].join('\n'),
+ CODING_TABLE:['| 模块数 | 路径 | 验收通过 | 模型轮数 | 输入 token | 耗时秒 |','|---|---|---:|---:|---:|---:|',...coding.groups.map(g=>`| ${g.count} | ${{codemode:'Codemode',ptc:'全量 DSH PTC',hybrid:'融合'}[g.mode]} | ${g.passed}/3 | ${g.medians.modelRequests} | ${n(g.medians.inputTokens)} | ${(g.medians.localWallMs/1000).toFixed(2)} |`)].join('\n'),
 };
 for(const [mode,key]of [['codemode','CODING_CODE_PASS'],['ptc','CODING_PTC_PASS'],['hybrid','CODING_HYBRID_PASS']])replacements[key]=`${coding.groups.filter(g=>g.mode===mode).reduce((sum,g)=>sum+g.passed,0)}/9`;
 replacements.CODING_ROUNDS=`${Math.min(...coding.groups.map(g=>g.ranges.modelRequests[0]))}–${Math.max(...coding.groups.map(g=>g.ranges.modelRequests[1]))}`;
