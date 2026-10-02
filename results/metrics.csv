@@ -1,0 +1,5 @@
+path,modelRequests,inputTokens,outputTokens,cacheHitTokens,wireRequestBytes,initialMcpSchemaBytes,initialToolDeclarationBytes,initialSdkDeclarationBytes,surfacedResultBytes,mcpCalls,rawMcpResultBytes,peakMcpConcurrency,modelWallMs,localWallMs
+before,10,67339,976,61056,303218,8994,8994,,33403,9,33403,1,8626,9002
+batch,3,17066,871,10368,75672,8994,8994,,33403,9,33403,8,4324,4456
+after,3,6086,852,4864,23167,0,1329,,3622,9,33403,8,3982,4164
+ptc,2,7856,661,4096,31050,0,2128,9538,1031,9,33403,8,3299,3757

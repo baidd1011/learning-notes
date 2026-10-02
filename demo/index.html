@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pi / 工具调用，前后有什么不同？</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">π <span>运行观察室</span></a><div class="top-meta"><span class="live-dot"></span>真实 MCP · 真实 QuickJS <span class="tag">Pi 1.0.0</span></div></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">TOOL CALLING → CODE AS ORCHESTRATION</p><h1>同一个任务，<br class="mobile-break">换一种执行方式。</h1><p class="lead">看清 Pi 更新后，哪些东西传给模型，哪些留在运行时。</p></div><div class="intro-mark" aria-hidden="true">π<span>CODEMODE</span></div></div>
+    <section class="scenario">
+      <div class="scenario-icon" aria-hidden="true">↗</div><div class="scenario-copy"><p class="eyebrow">具体场景 / 电商订单跟进</p><h2>支付超过 72 小时，还没发货的订单有哪些？</h2><p>核对支付与物流状态，按等待时间列出前三条，并给出跟进建议。</p></div>
+      <div class="controls"><label>推理方式<select id="inference"><option value="replay">固定回放</option><option value="online">DeepSeek 在线</option></select></label><label>订单数<select id="count"><option>12</option><option>24</option><option>48</option></select></label><label>MCP 工具数<select id="toolCount"><option>3</option><option selected>18</option><option>60</option></select></label><button id="run">↻ 重新运行对照</button></div>
+    </section>
+    <div class="scope-note"><span class="tag small">本次模式</span><span id="scope-text">正在载入运行模式…</span></div>
+    <div class="scope-note"><span class="tag small">API 配置</span><span id="api-config">正在检查本机配置…</span></div>
+    <div id="status" role="status" aria-live="polite">正在载入运行记录…</div>
+    <section class="compare-grid" aria-label="前后对照">
+      <article class="mode-card before"><div class="mode-head"><div><p class="eyebrow">BEFORE / 传统 MCP 基线</p><h2>模型一步一步调工具</h2></div><span class="mode-badge">LLM IN THE LOOP</span></div>
+        <div class="flow"><span>LLM</span><b>⇄</b><span>MCP 工具</span><b>⇄</b><span>LLM</span></div><p class="mode-desc">全量接口先进入请求，原始结果逐轮回到模型。</p><div class="stats" id="before-stats"></div><div class="takeaway"><span>模型承担</span>选择工具 · 调度下一步 · 读原始数据</div>
+      </article>
+      <article class="mode-card after"><div class="mode-head"><div><p class="eyebrow">AFTER / Pi Codemode</p><h2>模型写代码，运行时执行</h2></div><span class="mode-badge">CODE AS ORCHESTRATION</span></div>
+        <div class="flow"><span>LLM</span><b>→</b><span>QuickJS + MCP</span><b>→</b><span>精简结果</span></div><p class="mode-desc">先发现相关接口，再并发调用、过滤，只返回摘要。</p><div class="stats" id="after-stats"></div><div class="takeaway"><span>运行时承担</span>循环 · 并发 · 精确筛选 · 数据整理</div>
+      </article>
+    </section>
+    <section class="inspector">
+      <div class="section-heading"><div><p class="eyebrow">FOLLOW THE DATA</p><h2>把“传给 LLM 的区别”展开看</h2></div><a class="text-link" href="/api/export" download>导出完整运行记录 ↗</a></div>
+      <div class="tabs" role="tablist" aria-label="观察维度"><button role="tab" aria-selected="true" data-tab="initial">① 首轮请求</button><button role="tab" aria-selected="false" data-tab="rounds">② 逐轮传输</button><button role="tab" aria-selected="false" data-tab="timeline">③ MCP 调用</button><button role="tab" aria-selected="false" data-tab="code">④ 编排代码</button><button role="tab" aria-selected="false" data-tab="ptc">⑤ Harness PTC</button></div>
+      <div id="inspect-content"></div>
+    </section>
+    <section class="result-section"><div class="section-heading"><div><p class="eyebrow">SAME TASK · CHECKED RESULTS</p><h2 id="result-heading">最终结果与业务事实核验</h2></div><span id="match-badge" class="match-badge"></span></div><div id="order-results"></div></section>
+    <section class="baseline"><div class="section-heading"><div><p class="eyebrow">公平对照</p><h2>四种路径，相同业务核对</h2></div><span class="tag">真实调用记录</span></div><p>并行 Tool Calling 也能减少模型往返。Pi Codemode 按需发现接口；Harness PTC 首轮加载完整 SDK，再执行生成的程序。两种代码路径都能在运行时处理原始数据，只把摘要交给模型。</p><div class="table-wrap"><table><thead><tr id="baseline-head"></tr></thead><tbody id="baseline-table"></tbody></table></div><p class="fineprint" id="metric-note"></p></section>
+    <footer><span>模型负责理解与编排，程序负责确定性执行。</span><div><a href="https://pi.dev/docs/latest/codemode" target="_blank" rel="noreferrer">Codemode 文档 ↗</a><a href="https://pi.dev/changelog" target="_blank" rel="noreferrer">版本来源 ↗</a></div></footer>
+  </main>
+</body>
+</html>
