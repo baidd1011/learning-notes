@@ -134,7 +134,8 @@ export async function runMode(mode = 'direct', options = {}) {
     streamSimple: online ? createDeepSeekStream({ config: onlineConfig, requests, responses, fetchImpl: options.testFetch, onProgress: p => options.onProgress?.({ mode, ...p }) }) : streamReplay,
     models: [{ id: modelId, name: modelId, api: 'openai-completions', input: ['text'], reasoning: false, contextWindow: 1000000, maxTokens: 6000, cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 } }] });
   const commonPrompt = COMMON_PROMPT;
-  const modePrompt = mode === 'direct' ? ' Call exactly ONE tool per assistant turn; wait for the result before requesting another. Use direct tool calls only.'
+  const modePrompt = options.discoveryOnly ? ` This is ONLY the interface discovery stage. Use exactly ONE codemode call. Inside it await ONE searchTools() call with a combined query describing all three required capabilities (list orders, payment status, shipment status), limit:3 and namespace:"orders". This catalog has three relevant interfaces. Return all three distinct names from that combined search result with text({selectedTools: names}); do not select just the first search hit and do not perform three separate searches. You may await describeTool() privately if needed. Print ONLY the selectedTools JSON object, no raw declarations or diagnostic details. Do NOT execute any business tool. The host will look up authoritative schemas, generate a PTC SDK deterministically and hand off execution. searchTools(query,{limit,namespace}) resolves to an array of {name,description}; await every discovery function. Generate your own code from this protocol and do not guess tool identifiers.`
+    : mode === 'direct' ? ' Call exactly ONE tool per assistant turn; wait for the result before requesting another. Use direct tool calls only.'
     : mode === 'direct-batch' ? ' First get the order list; then request all independent payment and shipment checks in ONE assistant turn using multiple tool calls so the host can execute them in parallel.'
     : ` Use codemode in two stages. Stage 1 is discovery only: search for the three relevant tools, await their declarations, and print those declarations. Stage 2 is ONE business script: read the list once, filter using ALL THREE conditions, verify each candidate's two states in parallel with Promise.all, sort, and text() ONLY the compact final report. Once that report is returned, finish with the report; do not call tools again.
 Runtime API contract: searchTools(), describeTool(), describeNamespace(), and tools.<name>() ALL return Promises. ALWAYS await them before accessing properties or printing; unawaited calls are cancelled when the script ends. text(), store(), load() are synchronous. searchTools resolves to an array of {name,description}; describeTool resolves to a string with input/output TypeScript declarations. For example, discovery syntax is: const hits = await searchTools("relevant topic", {limit: 3}); for (const hit of hits) text(await describeTool(hit.name)); Use a topic relevant to this task, not the literal example. Do not print ALL_TOOLS or describe an entire namespace.
@@ -147,6 +148,7 @@ MCP tools return CallToolResult<T>, NOT T. Check result.isError, then unwrap res
       pi.createMcpExtension({ loadConfig: () => ({ servers: [{ name: 'orders', scope: 'extension', source: 'demo', config: { command: process.execPath, args: [join(cwd, 'mcp-server.mjs'), String(count), String(toolCount), String(delayMs)], exposure, description: 'Read-only demo orders, payments and shipments.' } }], errors: [] }), logPath: join(agentDir, 'mcp.log') }),
       api => {
         api.on('tool_call', event => {
+          if (options.discoveryOnly && event.toolName.startsWith('mcp__orders__')) return { block:true, reason:'Discovery stage cannot execute business tools.' };
           if (online && event.toolName.startsWith('mcp__orders__') && calls.length >= 130) return { block: true, reason: '单条路径超过 130 次业务工具调用上限。' };
           if (!event.toolName.startsWith('mcp__orders__')) return;
           active++; peak = Math.max(peak, active);
@@ -169,8 +171,21 @@ MCP tools return CallToolResult<T>, NOT T. Check result.isError, then unwrap res
   try {
     await session.bindExtensions({});
     // Batch baseline intentionally enables the agent's parallel tool executor.
-    session.agent.toolExecution = mode === 'direct' ? 'sequential' : 'parallel';
+    session.agent.toolExecution = mode === 'direct' || options.discoveryOnly ? 'sequential' : 'parallel';
+    if (options.discoveryOnly) session.agent.subscribe(event => {
+      if (event.type === 'tool_execution_end' && event.toolName === 'codemode') session.agent.abort();
+    });
     await session.prompt(USER_TASK);
+    if (options.discoveryOnly) {
+      const messages=copy(session.messages);
+      const results=messages.filter(m=>m.role==='toolResult');
+      let rawSelectedTools=[];
+      try { rawSelectedTools=parseResult(results.find(m=>m.toolName==='codemode')).selectedTools ?? []; } catch {}
+      const selectedTools=Array.isArray(rawSelectedTools)?[...new Set(rawSelectedTools)]:[];
+      const passed=requests.length===1 && calls.length===0 && results.length===1 && !results[0].isError && selectedTools.length===3 && selectedTools.every(n=>typeof n==='string');
+      const usage=f=>requests.every(r=>r.apiUsage)?requests.reduce((s,r)=>s+(r.apiUsage[f]??0),0):null;
+      return {mode:'discovery',rawSelectedTools,selectedTools,normalization:'deduplicate exact identifiers only; no tool added or removed by relevance',validation:{passed},requests,responses,messages,calls,metrics:{modelRequests:requests.length,inputTokens:usage('prompt_tokens'),outputTokens:usage('completion_tokens'),cacheHitTokens:usage('prompt_cache_hit_tokens'),localWallMs:Math.round(performance.now()-start),surfacedResultBytes:results.reduce((s,r)=>s+bytes(r.content),0)}};
+    }
     const final = session.getLastAssistantText();
     let report = null, error = null;
     try {

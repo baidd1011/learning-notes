@@ -107,7 +107,9 @@ export async function runPtc(options = {}) {
     ]) { await ctx.plugin(plugin, settings).await(); }
     ctx.on('session/event', (_subject, event) => { sessionEvents.push(copy(event)); });
     ctx.on('system-prompt/assemble', async (_assembly, _context, next) => { const assembled = await next(); assemblies.push(copy(assembled)); return assembled; });
-    for (const t of mcp.tools) ctx.tools.register({ name: `mcp__orders__${t.name}`, description: t.description, parameters: t.inputSchema,
+    const selectedNames=options.selectedTools;
+    if(selectedNames && (!selectedNames.length || selectedNames.some(n=>!mcp.tools.some(t=>`mcp__orders__${t.name}`===n)))) throw new Error('Handoff contains unknown or empty tool selection');
+    for (const t of mcp.tools.filter(t=>!selectedNames||selectedNames.includes(`mcp__orders__${t.name}`))) ctx.tools.register({ name: `mcp__orders__${t.name}`, description: t.description, parameters: t.inputSchema,
       output: { schema: dshSchema(t.outputSchema ?? { type: 'object', additionalProperties: true }), render: (_args, value) => [{ type: 'text', text: JSON.stringify(value) }] },
       isConcurrencySafe: () => true,
       async execute(args, exec) {
@@ -126,6 +128,12 @@ export async function runPtc(options = {}) {
         if (requests.length >= 64 || performance.now() - start > 600000) throw new Error('PTC online limit exceeded');
         const context = copy({ messages: inputs.messages, tools: inputs.tools ?? [], ...(inputs.system ? { system: inputs.system } : {}) });
         const wirePayload = toWire(config, inputs);
+        if(options.handoffMessages) {
+          const system=wirePayload.messages.filter(m=>m.role==='system');
+          const following=wirePayload.messages.filter(m=>m.role!=='system');
+          if(following[0]?.role==='user' && following[0].content===USER_TASK) following.shift();
+          wirePayload.messages=[...system,...copy(options.handoffMessages),...following];
+        }
         const request = { round: requests.length + 1, context, bytes: bytes(context), wirePayload, wireBytes: bytes(wirePayload), startedAt: new Date().toISOString() }; requests.push(request);
         let reply;
         if (online) {

@@ -1,0 +1,539 @@
+{
+  "tasks": 81,
+  "passed": 81,
+  "priorAttempts": 57,
+  "aggregation": "cell median of three successful retained tasks; discovery prompt revisions are mixed, failures separately retained",
+  "groups": [
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5498,
+        "outputTokens": 719,
+        "cacheHitTokens": 4864,
+        "modelRequests": 3,
+        "localWallMs": 4508,
+        "modelWallMs": 4336,
+        "surfacedResultBytes": 2039
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v2",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 4435,
+        "outputTokens": 467,
+        "cacheHitTokens": 4095,
+        "modelRequests": 2,
+        "localWallMs": 3057,
+        "modelWallMs": 2649,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 122
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5802,
+        "outputTokens": 561,
+        "cacheHitTokens": 5248,
+        "modelRequests": 3,
+        "localWallMs": 4269,
+        "modelWallMs": 3855,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 334
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v2",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5925,
+        "outputTokens": 724,
+        "cacheHitTokens": 5376,
+        "modelRequests": 3,
+        "localWallMs": 4343,
+        "modelWallMs": 4222,
+        "surfacedResultBytes": 2915
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v2",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 7622,
+        "outputTokens": 474,
+        "cacheHitTokens": 7296,
+        "modelRequests": 2,
+        "localWallMs": 3103,
+        "modelWallMs": 2773,
+        "initialSdkDeclarationBytes": 9538,
+        "surfacedResultBytes": 122
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5794,
+        "outputTokens": 554,
+        "cacheHitTokens": 5248,
+        "modelRequests": 3,
+        "localWallMs": 4438,
+        "modelWallMs": 4041,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 334
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v2",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5904,
+        "outputTokens": 699,
+        "cacheHitTokens": 5376,
+        "modelRequests": 3,
+        "localWallMs": 4712,
+        "modelWallMs": 4592,
+        "surfacedResultBytes": 2902
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v2",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 16542,
+        "outputTokens": 466,
+        "cacheHitTokens": 16128,
+        "modelRequests": 2,
+        "localWallMs": 3334,
+        "modelWallMs": 2986,
+        "initialSdkDeclarationBytes": 26458,
+        "surfacedResultBytes": 122
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5794,
+        "outputTokens": 556,
+        "cacheHitTokens": 5248,
+        "modelRequests": 3,
+        "localWallMs": 3803,
+        "modelWallMs": 3144,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 334
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v2",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5662,
+        "outputTokens": 836,
+        "cacheHitTokens": 4992,
+        "modelRequests": 3,
+        "localWallMs": 4693,
+        "modelWallMs": 4548,
+        "surfacedResultBytes": 2773
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 4671,
+        "outputTokens": 670,
+        "cacheHitTokens": 4224,
+        "modelRequests": 2,
+        "localWallMs": 3620,
+        "modelWallMs": 3257,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1019
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6027,
+        "outputTokens": 724,
+        "cacheHitTokens": 5376,
+        "modelRequests": 3,
+        "localWallMs": 4467,
+        "modelWallMs": 4020,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1243
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6093,
+        "outputTokens": 864,
+        "cacheHitTokens": 5504,
+        "modelRequests": 3,
+        "localWallMs": 5151,
+        "modelWallMs": 5001,
+        "surfacedResultBytes": 3610
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 7855,
+        "outputTokens": 687,
+        "cacheHitTokens": 7552,
+        "modelRequests": 2,
+        "localWallMs": 3992,
+        "modelWallMs": 3613,
+        "initialSdkDeclarationBytes": 9538,
+        "surfacedResultBytes": 1031
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6027,
+        "outputTokens": 725,
+        "cacheHitTokens": 5376,
+        "modelRequests": 3,
+        "localWallMs": 4677,
+        "modelWallMs": 4230,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1243
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6093,
+        "outputTokens": 804,
+        "cacheHitTokens": 5504,
+        "modelRequests": 3,
+        "localWallMs": 4615,
+        "modelWallMs": 4472,
+        "surfacedResultBytes": 3750
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 16765,
+        "outputTokens": 697,
+        "cacheHitTokens": 16384,
+        "modelRequests": 2,
+        "localWallMs": 4199,
+        "modelWallMs": 3822,
+        "initialSdkDeclarationBytes": 26458,
+        "surfacedResultBytes": 986
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6027,
+        "outputTokens": 711,
+        "cacheHitTokens": 5376,
+        "modelRequests": 3,
+        "localWallMs": 4244,
+        "modelWallMs": 3795,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1243
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 5675,
+        "outputTokens": 861,
+        "cacheHitTokens": 4992,
+        "modelRequests": 3,
+        "localWallMs": 4912,
+        "modelWallMs": 4768,
+        "surfacedResultBytes": 2774
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 4674,
+        "outputTokens": 680,
+        "cacheHitTokens": 4096,
+        "modelRequests": 2,
+        "localWallMs": 3851,
+        "modelWallMs": 3304,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1023
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6359,
+        "outputTokens": 914,
+        "cacheHitTokens": 5504,
+        "modelRequests": 3,
+        "localWallMs": 5375,
+        "modelWallMs": 4777,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1235
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6096,
+        "outputTokens": 840,
+        "cacheHitTokens": 5504,
+        "modelRequests": 3,
+        "localWallMs": 4500,
+        "modelWallMs": 4350,
+        "surfacedResultBytes": 3653
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 7858,
+        "outputTokens": 682,
+        "cacheHitTokens": 7552,
+        "modelRequests": 2,
+        "localWallMs": 3646,
+        "modelWallMs": 3095,
+        "initialSdkDeclarationBytes": 9538,
+        "surfacedResultBytes": 1035
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-discovery-v3",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6030,
+        "outputTokens": 735,
+        "cacheHitTokens": 5376,
+        "modelRequests": 3,
+        "localWallMs": 5316,
+        "modelWallMs": 4690,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1247
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "codemode",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 7584,
+        "outputTokens": 850,
+        "cacheHitTokens": 6784,
+        "modelRequests": 3,
+        "localWallMs": 4637,
+        "modelWallMs": 4476,
+        "surfacedResultBytes": 6461
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "ptc",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 16770,
+        "outputTokens": 668,
+        "cacheHitTokens": 16256,
+        "modelRequests": 2,
+        "localWallMs": 3714,
+        "modelWallMs": 3164,
+        "initialSdkDeclarationBytes": 26458,
+        "surfacedResultBytes": 990
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "hybrid",
+      "revisions": [
+        "hybrid-v1",
+        "hybrid-v1",
+        "hybrid-discovery-v3"
+      ],
+      "medians": {
+        "inputTokens": 6298,
+        "outputTokens": 810,
+        "cacheHitTokens": 5632,
+        "modelRequests": 3,
+        "localWallMs": 5093,
+        "modelWallMs": 4471,
+        "initialSdkDeclarationBytes": 3504,
+        "surfacedResultBytes": 1402
+      }
+    }
+  ]
+}

@@ -285,3 +285,41 @@ node matrix.mjs   # 108次任务；断点续跑；会消耗在线API用量
 实现入口：[Pi三路径](demo/engine.mjs)、[官方PTC组合和MCP bridge](demo/ptc.mjs)、[在线适配](demo/deepseek.mjs)、[矩阵运行器](demo/matrix.mjs)、[执行核验](demo/benchmark-checks.mjs)。版本由[Pi锁文件](demo/package-lock.json)和[Harness锁文件](demo/ptc-package-lock.json)固定。
 
 公开证据：[矩阵说明](docs/matrix-evidence.md)、[逐次CSV](results/matrix/metrics.csv)、[聚合JSON](results/matrix/summary.json)、[矩阵manifest](results/matrix/manifest.json)。此前12单/18工具的[初始单组记录](results/online-2026-10-02.json)和[初始指标](results/summary.json)也保留，不与新矩阵拼成一组统计。API Key、Authorization header和个人配置未上传；本机路径已替换，采集时的字节值原样保留。
+
+## 补充：先发现，再生成 SDK，交给 PTC
+
+Codemode 的按需发现和 PTC 的程序执行可以组合。首轮只提供 Codemode 入口，模型写一段发现代码，在运行时检索接口，返回所需工具名。宿主拿这些名字查询工具注册表，取出权威的描述、输入和输出 JSON Schema，只注册选中的工具，再由 Harness 官方生成器生成 TypeScript SDK。下一轮提供 run_code 和这份小 SDK，模型编写业务代码，执行结束后再生成回答。
+
+注册表可以理解为 `工具名 → {description, inputSchema, outputSchema, execute}`。查表、SDK 类型转换和运行时绑定都是确定性的宿主操作，**转换阶段没有额外 LLM 请求**。SDK 是接口声明和调用绑定，不是现场编译一个 npm 包。实际调用仍经 MCP bridge 访问同一个服务。
+
+本实现由 Pi 完成发现，再由宿主把真实用户消息、模型的 Codemode 调用和发现结果接入 Harness 请求，执行阶段使用官方 Node PTC。两套框架有显式交接，也有各自的初始化成本；这不是 Harness 内部原生的一条统一 Agent loop。首轮只有 codemode，后续只有 run_code。发现阶段不执行业务，执行阶段只注册实际选出的三个工具，不通过宿主补选来纠正模型。原始请求体保存在证据里的 wirePayload。
+
+### 本次补充结果
+
+此前108次四路径矩阵保持原样。本次另设三路径的81个任务：3种订单数 × 3种工具数 × Codemode/PTC/融合 × 3次重复。暂停前已成功的38个任务全部保留，没有重跑；本次只续跑缺失或失败任务。最终81个任务全部通过业务事实和执行过程核验。
+
+**重要口径：这是带校准过程的续跑结果。** 成功的融合记录包含早期发现提示和修正后的提示；不是同一最终提示下重新跑出的27次实验。融合成功记录的版本分布为hybrid-v1: 9次；hybrid-discovery-v3: 18次。早期失败是代码分别搜索三个能力、按描述关键词或首条命中选取时，重复选中了订单列表。最终协议改为一次组合检索返回三个不同接口，模型仍自行生成发现代码，没有硬编码工具名。另有本次受网络执行权限限制、无 API usage 的失败；这些记录也保留。历史失败总计57条：14次在线发现失败、43次无API用量的网络或本地失败。失败开销未加入下表成功任务的中位数，不代表包含重试的生产成本。
+
+每格列出三次成功任务的中位数，顺序均为 **Codemode / PTC / 融合**。input token 包含缓存命中；耗时包含在线推理和本地初始化。
+
+| 订单数 / 工具数 | API 输入 token | 端到端耗时 ms |
+|---|---:|---:|
+| 1 / 3 | 5498 / 4435 / 5802 | 4508 / 3057 / 4269 |
+| 1 / 18 | 5925 / 7622 / 5794 | 4343 / 3103 / 4438 |
+| 1 / 60 | 5904 / 16542 / 5794 | 4712 / 3334 / 3803 |
+| 12 / 3 | 5662 / 4671 / 6027 | 4693 / 3620 / 4467 |
+| 12 / 18 | 6093 / 7855 / 6027 | 5151 / 3992 / 4677 |
+| 12 / 60 | 6093 / 16765 / 6027 | 4615 / 4199 / 4244 |
+| 48 / 3 | 5675 / 4674 / 6359 | 4912 / 3851 / 5375 |
+| 48 / 18 | 6096 / 7858 / 6030 | 4500 / 3646 / 5316 |
+| 48 / 60 | 7584 / 16770 / 6298 | 4637 / 3714 / 5093 |
+
+**融合保留了按需接口暴露的优势，但没有自动获得 PTC 的两轮延迟。** 本次三个业务接口的 SDK 在所有工具规模下均为3504字节；全量 PTC 的 SDK 随目录从3504增长到9538、26458字节。60个工具时，融合相比全量PTC少输入62.4%–65.0%。不过融合通常仍需“发现、编排、总结”三轮；九格中全量PTC的耗时中位数均低于融合；融合在5格低于纯Codemode。**当前结果支持用融合控制大工具目录的输入规模，不能据此把它称为最快路径，也不能据此保证比纯Codemode更省。**
+
+发现结果会作为历史再次进入后续请求，所以只生成小 SDK 不等于零发现成本。发现代码、结果、SDK和历史都计入 API 输入。不同发现提示、缓存状态、两套框架初始化，以及 Codemode 和 PTC 不同的并发上限，仍会影响结果。这里没有做独立冷缓存、同并发上限或跨模型测试。
+
+### 复现与证据
+
+实现：[融合交接](demo/hybrid.mjs)、[发现阶段](demo/engine.mjs)、[选中接口注册与 SDK 生成](demo/ptc.mjs)、[续跑器](demo/hybrid-matrix.mjs)。在配置好的 demo 目录运行 `node hybrid-matrix.mjs`；运行器跳过已成功任务，失败尝试写入独立附件，不覆盖旧证据，会消耗在线 API 用量。
+
+公开附件：[逐次指标](results/hybrid/metrics.csv)、[聚合数据](results/hybrid/summary.json)、[全部尝试及 SHA256](results/hybrid/manifest.json)。在仓库根目录运行 `node scripts/verify-hybrid.mjs`，核对事实、调用集合、SDK大小、实际请求交接、API usage和附件哈希。Hybrid 根级 initialSdkDeclarationBytes 指首次 **PTC执行阶段** SDK；首轮发现没有该 SDK。根级 accumulatedRequestBytes 来自框架内部上下文，交接后的实际网络请求以 wirePayload/wireRequestBytes 为准。未修改原始采集指标。

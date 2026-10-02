@@ -52,5 +52,6 @@ const conclusions=`
 以上结论以修正配置后的108次完整任务为依据，业务事实和执行过程全部通过核验；校准失败另行保留。当前证据明确支持这些配置下的输入和耗时比较，尚未证明不同模型、不同业务、相同并发上限或独立冷缓存条件下也保持同样结果。
 `;
 body=body.replace('\n## 把它应用到自己的智能体',conclusions+'\n## 把它应用到自己的智能体');
+try { body += (await readFile(new URL('docs/hybrid-article.md',root),'utf8')).replaceAll('(../demo/','(demo/').replaceAll('(../results/','(results/'); } catch(e) { if(e.code!=='ENOENT')throw e; }
 await writeFile(new URL('README.md',root),body);
 console.log(`Built article and appendix from ${m.runs.length} runs; ${summary.passed} passed`);
