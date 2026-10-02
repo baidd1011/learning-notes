@@ -30,12 +30,19 @@ const replacements={
 };
 for(const [mode,key]of [['codemode','CODING_CODE_PASS'],['ptc','CODING_PTC_PASS'],['hybrid','CODING_HYBRID_PASS']])replacements[key]=`${coding.groups.filter(g=>g.mode===mode).reduce((sum,g)=>sum+g.passed,0)}/9`;
 replacements.CODING_ROUNDS=`${Math.min(...coding.groups.map(g=>g.ranges.modelRequests[0]))}–${Math.max(...coding.groups.map(g=>g.ranges.modelRequests[1]))}`;
-let body=await readFile(new URL('scripts/article-body.md',root),'utf8');
-for(const name of ['demo','docs','results','scripts'])body=body.replaceAll('(../'+name+'/', '('+name+'/');
-body=body.replace(/\{\{([A-Z_]+)\}\}/g,(_match,key)=>{assert.ok(key in replacements,`Unknown article value ${key}`);return replacements[key];});
-assert.ok(!/\{\{[A-Z_]+\}\}/.test(body));
-assert.ok(!/!\[|```mermaid|architecture-v1/.test(body),'Removed figure must not reappear');
-const target=new URL('README.md',root);
-if(process.argv.includes('--check'))assert.equal(await readFile(target,'utf8'),body,'README differs from article source and frozen results');
-else await writeFile(target,body);
-console.log(`Unified article ${process.argv.includes('--check')?'verified':'built'} from frozen 108 / 81 / 27 task summaries; evidence unchanged`);
+const english={...replacements};
+english.ORDER_TOOL_INPUT=replacements.ORDER_TOOL_INPUT.replace('工具数','Tools').replace('并行 Tool Calling 输入','Batched tool calling input').replace('Codemode 输入','Codemode input').replace('全量 DSH PTC 输入','Full-SDK DSH PTC input');
+english.ORDER_HYBRID_TABLE=replacements.ORDER_HYBRID_TABLE.replace('订单数 / 60工具','Orders / 60 tools').replace('输入 token：Codemode / PTC / 融合','Input tokens: Codemode / PTC / hybrid').replace('耗时 ms：Codemode / PTC / 融合','Time (ms): Codemode / PTC / hybrid');
+english.CODING_TABLE=replacements.CODING_TABLE.replace('模块数','Modules').replace('路径','Path').replace('验收通过','Passed').replace('模型轮数','Model requests').replace('输入 token','Input tokens').replace('耗时秒','Time (s)').replaceAll('全量 DSH PTC','Full-SDK DSH PTC').replaceAll('融合','Hybrid');
+for(const [source,output,values] of [['scripts/article-body.md','README.md',replacements],['scripts/article-body.en.md','README.en.md',english]]){
+ let body=await readFile(new URL(source,root),'utf8');
+ for(const name of ['demo','docs','results','scripts'])body=body.replaceAll('(../'+name+'/', '('+name+'/');
+ body=body.replaceAll('(../README', '(README');
+ body=body.replace(/\{\{([A-Z_]+)\}\}/g,(_match,key)=>{assert.ok(key in values,`Unknown article value ${key}`);return values[key];});
+ assert.ok(!/\{\{[A-Z_]+\}\}/.test(body));
+ assert.ok(!/!\[|```mermaid|architecture-v1/.test(body),'Removed figure must not reappear');
+ const target=new URL(output,root);
+ if(process.argv.includes('--check'))assert.equal(await readFile(target,'utf8'),body,`${output} differs from article source and frozen results`);
+ else await writeFile(target,body);
+}
+console.log(`Chinese and English articles ${process.argv.includes('--check')?'verified':'built'} from frozen 108 / 81 / 27 task summaries; evidence unchanged`);
