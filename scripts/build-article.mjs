@@ -23,7 +23,7 @@ appendix+='\n## 采集条件\n\nDeepSeek 官方 `deepseek-flash`；thinking disa
 if(summary.failures.length) appendix+='\n## 修正后矩阵未通过的运行\n\n'+summary.failures.map(r=>`- ${r.id}：${JSON.stringify(r.validation)}；${r.error??'无最终解析错误'}`).join('\n')+'\n';
 await writeFile(new URL('docs/matrix-evidence.md',root),appendix);
 let body=await readFile(new URL('scripts/article-body.md',root),'utf8');
-body=body.replaceAll('(../demo/','(demo/');
+body=body.replaceAll('(../demo/','(demo/').replaceAll('(../assets/','(assets/');
 body+='\n## 用订单任务验证这些取舍\n\n我们让四条路径访问同一个只读 stdio MCP 服务：逐步 Tool Calling、并行 Tool Calling、Pi Codemode 和 Harness PTC。任务是筛选支付超过72小时但仍未发货的订单，核对全部候选的支付和物流，按等待时间输出前三条。其余接口是无关的只读业务工具；订单和较长的审计、扫描字段都是合成数据。\n\n订单数取1、12、48，工具数取3、18、60，交叉组合后每条路径重复3次。'+`最终矩阵保留 **${summary.attempts} 次完整任务，${summary.passed} 次通过核验**。`+'完整逐次数据、失败、采集条件和耗时范围放在[证据附件](docs/matrix-evidence.md)，这里关注它们怎样支撑前面的实现解释。\n\n### 工具规模改变的是接口说明成本\n\n固定12条订单，只增加无关工具，业务调用仍是9次。下表输入是有效运行的中位数，已包含缓存命中：\n\n| 工具数 | 并行 Tool Calling 输入 token | Codemode 输入 token | PTC 输入 token |\n| --- | ---: | ---: | ---: |\n';
 for(const t of m.tools) body+=`| ${t} | ${num(stat(12,t,'direct-batch','inputTokens'))} | ${num(stat(12,t,'codemode','inputTokens'))} | ${num(stat(12,t,'ptc','inputTokens'))} |\n`;
 body+='\nPTC 的完整 SDK 随可见工具数增长，Codemode 的入口保持紧凑，再由发现结果补充少量接口。Codemode也不是绝对固定成本：搜索命中的数量和模型打印的声明可能不同。小工具集时，发现说明及额外往返可能比直接提供 SDK 更贵；随着无关工具增加，按需说明的收益才显现。\n\n### 数据规模改变的是中间结果成本\n\n固定18个工具，增加订单。模型所需的最终报告仍很短，但候选核对数增加，支付和物流的原始审计字段也随之增加：\n\n| 订单数 | 业务调用数 | 并行 Tool Calling 输入 token | Codemode 输入 token | PTC 输入 token |\n| --- | ---: | ---: | ---: | ---: |\n';
