@@ -53,5 +53,6 @@ const conclusions=`
 `;
 body=body.replace('\n## 把它应用到自己的智能体',conclusions+'\n## 把它应用到自己的智能体');
 try { body += (await readFile(new URL('docs/hybrid-article.md',root),'utf8')).replaceAll('(../demo/','(demo/').replaceAll('(../results/','(results/'); } catch(e) { if(e.code!=='ENOENT')throw e; }
+try { body += (await readFile(new URL('docs/coding-article.md',root),'utf8')).replaceAll('(../demo/','(demo/').replaceAll('(../results/','(results/'); } catch(e) { if(e.code!=='ENOENT')throw e; }
 await writeFile(new URL('README.md',root),body);
 console.log(`Built article and appendix from ${m.runs.length} runs; ${summary.passed} passed`);

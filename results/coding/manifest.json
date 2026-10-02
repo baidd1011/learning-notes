@@ -1,0 +1,2244 @@
+{
+  "revision": "coding-v1",
+  "startedAt": "2026-10-02T13:47:54.516Z",
+  "provider": {
+    "configured": true,
+    "provider": "DeepSeek official API",
+    "baseUrl": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "thinking": "disabled"
+  },
+  "moduleCounts": [
+    3,
+    8,
+    16
+  ],
+  "paths": [
+    "codemode",
+    "ptc",
+    "hybrid"
+  ],
+  "repetitions": 3,
+  "toolCount": 5,
+  "maxConcurrency": 8,
+  "maxModelRequests": 24,
+  "maxToolCalls": 300,
+  "runtime": {
+    "pi": "1.0.0",
+    "harness": "0.2.0-rc.2",
+    "typescript": "5.9.3",
+    "node": "v24.14.1"
+  },
+  "policy": "No prescribed model rounds or fixed generated code. Fresh fixture per task. Rotate path order, reverse workload order on repetition 2. Retain failures without automatic rerun.",
+  "runs": [
+    {
+      "id": "modules3-r1-codemode",
+      "count": 3,
+      "repeat": 1,
+      "mode": "codemode",
+      "file": "modules3-r1-codemode.json.gz",
+      "sha256": "710c1e37d810c0a06922996ee0b205e80208a641d93fe50aea35ace818e4481e",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 12,
+        "inputTokens": 51032,
+        "outputTokens": 2442,
+        "cacheHitTokens": 44416,
+        "modelWallMs": 14262,
+        "wireRequestBytes": 192391,
+        "rawMcpResultBytes": 5860,
+        "mcpCalls": 19,
+        "peakMcpConcurrency": 5,
+        "peakSubmittedCalls": 5,
+        "surfacedResultBytes": 15306,
+        "localWallMs": 15563
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules3-r1-ptc",
+      "count": 3,
+      "repeat": 1,
+      "mode": "ptc",
+      "file": "modules3-r1-ptc.json.gz",
+      "sha256": "a777c4b02b535272c353cdfb510706746c9a8b2a82b131caf6ed23e00e0a521e",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 9,
+        "externalLlmRequests": 9,
+        "inputTokens": 29755,
+        "outputTokens": 1933,
+        "cacheHitTokens": 25600,
+        "modelWallMs": 9687,
+        "wireRequestBytes": 119142,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 6084,
+        "accumulatedRequestBytes": 128538,
+        "mcpCalls": 19,
+        "rawMcpResultBytes": 5860,
+        "peakMcpConcurrency": 6,
+        "localWallMs": 12597
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules3-r1-hybrid",
+      "count": 3,
+      "repeat": 1,
+      "mode": "hybrid",
+      "file": "modules3-r1-hybrid.json.gz",
+      "sha256": "b2123031b2845b3bbc58231073770ca0f04b3f70bba46d718194267c18f31317",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 10,
+        "externalLlmRequests": 9,
+        "inputTokens": 32260,
+        "outputTokens": 2328,
+        "cacheHitTokens": 28672,
+        "modelWallMs": 12721,
+        "wireRequestBytes": 129235,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 6332,
+        "accumulatedRequestBytes": 127741,
+        "mcpCalls": 18,
+        "rawMcpResultBytes": 5763,
+        "peakMcpConcurrency": 5,
+        "localWallMs": 15739
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules8-r1-ptc",
+      "count": 8,
+      "repeat": 1,
+      "mode": "ptc",
+      "file": "modules8-r1-ptc.json.gz",
+      "sha256": "a7b179206580df988eb58c58b6b7cf26db4e3e37ec16cdbe6981a5e73c0e7794",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 7,
+        "externalLlmRequests": 7,
+        "inputTokens": 24901,
+        "outputTokens": 2053,
+        "cacheHitTokens": 21888,
+        "modelWallMs": 9213,
+        "wireRequestBytes": 99256,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 8919,
+        "accumulatedRequestBytes": 104828,
+        "mcpCalls": 31,
+        "rawMcpResultBytes": 9230,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 11645
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules8-r1-codemode",
+      "count": 8,
+      "repeat": 1,
+      "mode": "codemode",
+      "file": "modules8-r1-codemode.json.gz",
+      "sha256": "f50227343ac866da15acd5139c05350bec874002685bb9eda42054e94f6172e8",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 12,
+        "inputTokens": 52055,
+        "outputTokens": 2391,
+        "cacheHitTokens": 45056,
+        "modelWallMs": 14652,
+        "wireRequestBytes": 196843,
+        "rawMcpResultBytes": 10969,
+        "mcpCalls": 33,
+        "peakMcpConcurrency": 1,
+        "peakSubmittedCalls": 1,
+        "surfacedResultBytes": 18943,
+        "localWallMs": 15963
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules16-r1-codemode",
+      "count": 16,
+      "repeat": 1,
+      "mode": "codemode",
+      "file": "modules16-r1-codemode.json.gz",
+      "sha256": "3532458b25f3d5e4f77a5a5b8cbe85673f5e530d5664b522438df85fa9123791",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 21,
+        "inputTokens": 157358,
+        "outputTokens": 4268,
+        "cacheHitTokens": 143616,
+        "modelWallMs": 25270,
+        "wireRequestBytes": 593891,
+        "rawMcpResultBytes": 47921,
+        "mcpCalls": 139,
+        "peakMcpConcurrency": 1,
+        "peakSubmittedCalls": 1,
+        "surfacedResultBytes": 38708,
+        "localWallMs": 27127
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules16-r1-ptc",
+      "count": 16,
+      "repeat": 1,
+      "mode": "ptc",
+      "file": "modules16-r1-ptc.json.gz",
+      "sha256": "be3a26be81295115b0a247a2155d7560e691d8387360fed989e9e5bb1f6feb89",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 22,
+        "externalLlmRequests": 22,
+        "inputTokens": 283111,
+        "outputTokens": 5682,
+        "cacheHitTokens": 268800,
+        "modelWallMs": 30632,
+        "wireRequestBytes": 1083627,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 45826,
+        "accumulatedRequestBytes": 1144233,
+        "mcpCalls": 109,
+        "rawMcpResultBytes": 48476,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 36943
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules16-r2-codemode",
+      "count": 16,
+      "repeat": 2,
+      "mode": "codemode",
+      "file": "modules16-r2-codemode.json.gz",
+      "sha256": "6b9a89887461cf28e742fc9b93689706379ec18bf2a00eebc8d421975505ba15",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 11,
+        "inputTokens": 44693,
+        "outputTokens": 1997,
+        "cacheHitTokens": 36224,
+        "modelWallMs": 12473,
+        "wireRequestBytes": 166715,
+        "rawMcpResultBytes": 18707,
+        "mcpCalls": 56,
+        "peakMcpConcurrency": 1,
+        "peakSubmittedCalls": 1,
+        "surfacedResultBytes": 21804,
+        "localWallMs": 13804
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "id": "modules16-r2-ptc",
+      "count": 16,
+      "repeat": 2,
+      "mode": "ptc",
+      "file": "modules16-r2-ptc.json.gz",
+      "sha256": "79c365fbd6213439d26029778ce6f1388d3c834b2e17c130334ead3181a4104a",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 24,
+        "externalLlmRequests": 24,
+        "inputTokens": 420618,
+        "outputTokens": 6037,
+        "cacheHitTokens": 393216,
+        "modelWallMs": 30595,
+        "wireRequestBytes": 1488270,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 97107,
+        "accumulatedRequestBytes": 1557704,
+        "mcpCalls": 200,
+        "rawMcpResultBytes": 80005,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 37594
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "f817d4212300622dea7900e1b80683b1b14ee66a07e3fb78220eacc5584d13ad",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": false,
+        "build": {
+          "exitCode": 2,
+          "output": "src/modules/module10.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module11.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module12.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module9.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+        },
+        "behavior": {
+          "passedTests": 0,
+          "totalTests": 64,
+          "failures": []
+        },
+        "oldApiPaths": [
+          "src/modules/module10.ts",
+          "src/modules/module11.ts",
+          "src/modules/module12.ts",
+          "src/modules/module5.ts",
+          "src/modules/module6.ts",
+          "src/modules/module7.ts",
+          "src/modules/module8.ts",
+          "src/modules/module9.ts"
+        ],
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module10.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module11.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module12.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module9.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 64,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module10.ts",
+            "src/modules/module11.ts",
+            "src/modules/module12.ts",
+            "src/modules/module5.ts",
+            "src/modules/module6.ts",
+            "src/modules/module7.ts",
+            "src/modules/module8.ts",
+            "src/modules/module9.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "id": "modules8-r2-codemode",
+      "count": 8,
+      "repeat": 2,
+      "mode": "codemode",
+      "file": "modules8-r2-codemode.json.gz",
+      "sha256": "35047f1f168e9a4ab59562da5274a38118a64ef3a6e34658919ebdca9f5543df",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 13,
+        "inputTokens": 60086,
+        "outputTokens": 2546,
+        "cacheHitTokens": 52864,
+        "modelWallMs": 14864,
+        "wireRequestBytes": 226753,
+        "rawMcpResultBytes": 11138,
+        "mcpCalls": 31,
+        "peakMcpConcurrency": 1,
+        "peakSubmittedCalls": 1,
+        "surfacedResultBytes": 19325,
+        "localWallMs": 16622
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v2-host-normalization",
+      "id": "modules16-r1-hybrid",
+      "count": 16,
+      "repeat": 1,
+      "mode": "hybrid",
+      "file": "modules16-r1-hybrid-a2.json.gz",
+      "sha256": "f817137c5bc451215da2ff66986606ff9860b370ec551236de6182e6dedc4513",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 7,
+        "externalLlmRequests": 7,
+        "inputTokens": 38043,
+        "outputTokens": 1745,
+        "cacheHitTokens": 30080,
+        "modelWallMs": 9209,
+        "wireRequestBytes": 145830,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 24185,
+        "accumulatedRequestBytes": 131527,
+        "mcpCalls": 88,
+        "rawMcpResultBytes": 23291,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 11769
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "4570917df2eac43c2b5724aacaa3c70bf6cef0f2b7eb425d242be8b36be67585",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "a921454f924725a5ec00f7f3e9e0a11e723104fbb291bde2b832a50553b6d114"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules8-r1-hybrid",
+      "count": 8,
+      "repeat": 1,
+      "mode": "hybrid",
+      "file": "modules8-r1-hybrid-a3.json.gz",
+      "sha256": "f03d520602eb48008442efe55716abe5741ef3a31d017ebfedcff662c61a6a72",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 6,
+        "externalLlmRequests": 6,
+        "inputTokens": 23427,
+        "outputTokens": 1958,
+        "cacheHitTokens": 19200,
+        "modelWallMs": 9573,
+        "wireRequestBytes": 90563,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 10771,
+        "accumulatedRequestBytes": 78071,
+        "mcpCalls": 29,
+        "rawMcpResultBytes": 8894,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 11786
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules16-r2-hybrid",
+      "count": 16,
+      "repeat": 2,
+      "mode": "hybrid",
+      "file": "modules16-r2-hybrid-a2.json.gz",
+      "sha256": "19c7928e7f926f35e3c2df7ffc3580d1a7251936a9df7aec8a5aa7b186f6e5b5",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 8,
+        "externalLlmRequests": 8,
+        "inputTokens": 46860,
+        "outputTokens": 1950,
+        "cacheHitTokens": 39040,
+        "modelWallMs": 11441,
+        "wireRequestBytes": 178889,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 23257,
+        "accumulatedRequestBytes": 164513,
+        "mcpCalls": 75,
+        "rawMcpResultBytes": 25281,
+        "peakMcpConcurrency": 2,
+        "localWallMs": 14008
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules8-r2-hybrid",
+      "count": 8,
+      "repeat": 2,
+      "mode": "hybrid",
+      "file": "modules8-r2-hybrid-a2.json.gz",
+      "sha256": "d8aa2aa644c247c0d7212a3beebc3602c46dde5201519708816b92f57e7ab7da",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 6,
+        "externalLlmRequests": 6,
+        "inputTokens": 24229,
+        "outputTokens": 2074,
+        "cacheHitTokens": 19712,
+        "modelWallMs": 9540,
+        "wireRequestBytes": 93467,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 11466,
+        "accumulatedRequestBytes": 80405,
+        "mcpCalls": 29,
+        "rawMcpResultBytes": 8894,
+        "peakMcpConcurrency": 1,
+        "localWallMs": 11515
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules8-r2-ptc",
+      "count": 8,
+      "repeat": 2,
+      "mode": "ptc",
+      "file": "modules8-r2-ptc.json.gz",
+      "sha256": "cbf896c877ca2edb0476d2ced2eead49702e97ce5ca0a18561c6c3993b7f7efe",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 8,
+        "externalLlmRequests": 8,
+        "inputTokens": 31809,
+        "outputTokens": 2342,
+        "cacheHitTokens": 29696,
+        "modelWallMs": 10567,
+        "wireRequestBytes": 125125,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 11114,
+        "accumulatedRequestBytes": 132557,
+        "mcpCalls": 32,
+        "rawMcpResultBytes": 11235,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 13591
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules3-r2-ptc",
+      "count": 3,
+      "repeat": 2,
+      "mode": "ptc",
+      "file": "modules3-r2-ptc.json.gz",
+      "sha256": "f8341afb26aed2d2efab93060901eff95bce274307adef5ab16006c6a6eb1c54",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 24,
+        "externalLlmRequests": 24,
+        "inputTokens": 150886,
+        "outputTokens": 2280,
+        "cacheHitTokens": 142715,
+        "modelWallMs": 20159,
+        "wireRequestBytes": 583740,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 25502,
+        "accumulatedRequestBytes": 652688,
+        "mcpCalls": 29,
+        "rawMcpResultBytes": 19348,
+        "peakMcpConcurrency": 6,
+        "localWallMs": 26563
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": false,
+        "build": {
+          "exitCode": 2,
+          "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+        },
+        "behavior": {
+          "passedTests": 0,
+          "totalTests": 12,
+          "failures": []
+        },
+        "oldApiPaths": [
+          "src/modules/module1.ts",
+          "src/modules/module2.ts",
+          "src/modules/module3.ts"
+        ],
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 12,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules3-r2-hybrid",
+      "count": 3,
+      "repeat": 2,
+      "mode": "hybrid",
+      "file": "modules3-r2-hybrid.json.gz",
+      "sha256": "d9f16ae5d86785244d82928e609a9091a69bdaa1844101b02876bed0fcc8c9b2",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 6,
+        "externalLlmRequests": 6,
+        "inputTokens": 19283,
+        "outputTokens": 1775,
+        "cacheHitTokens": 15744,
+        "modelWallMs": 8229,
+        "wireRequestBytes": 75987,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 7935,
+        "accumulatedRequestBytes": 63480,
+        "mcpCalls": 20,
+        "rawMcpResultBytes": 6004,
+        "peakMcpConcurrency": 3,
+        "localWallMs": 10188
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules3-r2-codemode",
+      "count": 3,
+      "repeat": 2,
+      "mode": "codemode",
+      "file": "modules3-r2-codemode.json.gz",
+      "sha256": "b72c0920f4eef5f875b82c482bddabe7aca4572f189c1256024818643bbc2988",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 11,
+        "inputTokens": 29761,
+        "outputTokens": 2060,
+        "cacheHitTokens": 25088,
+        "modelWallMs": 12048,
+        "wireRequestBytes": 112126,
+        "rawMcpResultBytes": 5720,
+        "mcpCalls": 17,
+        "peakMcpConcurrency": 5,
+        "peakSubmittedCalls": 5,
+        "surfacedResultBytes": 9074,
+        "localWallMs": 13234
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules3-r3-hybrid",
+      "count": 3,
+      "repeat": 3,
+      "mode": "hybrid",
+      "file": "modules3-r3-hybrid.json.gz",
+      "sha256": "5ca25185afacfcaf7f2a7a9ded47844e5a8e28481a140b37736c9ce002ce1bff",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 9,
+        "externalLlmRequests": 9,
+        "inputTokens": 32636,
+        "outputTokens": 1879,
+        "cacheHitTokens": 28800,
+        "modelWallMs": 11688,
+        "wireRequestBytes": 129216,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 7964,
+        "accumulatedRequestBytes": 113386,
+        "mcpCalls": 17,
+        "rawMcpResultBytes": 5524,
+        "peakMcpConcurrency": 4,
+        "localWallMs": 14325
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules3-r3-codemode",
+      "count": 3,
+      "repeat": 3,
+      "mode": "codemode",
+      "file": "modules3-r3-codemode.json.gz",
+      "sha256": "904e9e5845e588d9fc6218cbdd8b4d844383413d2176d542afb8b54d78926375",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 13,
+        "inputTokens": 37392,
+        "outputTokens": 2188,
+        "cacheHitTokens": 32640,
+        "modelWallMs": 14187,
+        "wireRequestBytes": 142998,
+        "rawMcpResultBytes": 5763,
+        "mcpCalls": 18,
+        "peakMcpConcurrency": 1,
+        "peakSubmittedCalls": 1,
+        "surfacedResultBytes": 9789,
+        "localWallMs": 15436
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "09d0bd406ce9ff0787480f321c185e3e3f51bd7efbaa2eb77524502b643cab30",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 12,
+          "totalTests": 12,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 12,
+            "totalTests": 12,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules3-r3-ptc",
+      "count": 3,
+      "repeat": 3,
+      "mode": "ptc",
+      "file": "modules3-r3-ptc.json.gz",
+      "sha256": "cde467f7fa5238635b197210f9a9507e36b32f8c426f9cbe7eb0ff69656f5d65",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 24,
+        "externalLlmRequests": 24,
+        "inputTokens": 155156,
+        "outputTokens": 2266,
+        "cacheHitTokens": 147323,
+        "modelWallMs": 20493,
+        "wireRequestBytes": 598429,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 26320,
+        "accumulatedRequestBytes": 667377,
+        "mcpCalls": 29,
+        "rawMcpResultBytes": 19971,
+        "peakMcpConcurrency": 6,
+        "localWallMs": 26844
+      },
+      "initialDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "finalDigest": "202ff7cfcc262e8ca1a3b6f4c6878e7f4c84744ac2f4cef30f33869eb70597ec",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": false,
+        "build": {
+          "exitCode": 2,
+          "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+        },
+        "behavior": {
+          "passedTests": 0,
+          "totalTests": 12,
+          "failures": []
+        },
+        "oldApiPaths": [
+          "src/modules/module1.ts",
+          "src/modules/module2.ts",
+          "src/modules/module3.ts"
+        ],
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 12,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules8-r3-codemode",
+      "count": 8,
+      "repeat": 3,
+      "mode": "codemode",
+      "file": "modules8-r3-codemode.json.gz",
+      "sha256": "c13f9a289f931f8aa465c6682b57dd39fb802f28fdc29c4b0c27d6e79766c0e9",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 12,
+        "inputTokens": 40624,
+        "outputTokens": 2738,
+        "cacheHitTokens": 34304,
+        "modelWallMs": 14328,
+        "wireRequestBytes": 153337,
+        "rawMcpResultBytes": 9509,
+        "mcpCalls": 32,
+        "peakMcpConcurrency": 8,
+        "peakSubmittedCalls": 8,
+        "surfacedResultBytes": 12916,
+        "localWallMs": 15915
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules8-r3-ptc",
+      "count": 8,
+      "repeat": 3,
+      "mode": "ptc",
+      "file": "modules8-r3-ptc.json.gz",
+      "sha256": "ed541a23694441259b0c7a2128d064023ab3cd9a04fd5e5ead8ca89639c5b42f",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 9,
+        "externalLlmRequests": 9,
+        "inputTokens": 39008,
+        "outputTokens": 2521,
+        "cacheHitTokens": 36864,
+        "modelWallMs": 12804,
+        "wireRequestBytes": 152867,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 12829,
+        "accumulatedRequestBytes": 162375,
+        "mcpCalls": 35,
+        "rawMcpResultBytes": 13026,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 16018
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules8-r3-hybrid",
+      "count": 8,
+      "repeat": 3,
+      "mode": "hybrid",
+      "file": "modules8-r3-hybrid.json.gz",
+      "sha256": "e420369328536281ada68a76c6312e27ebdf2ff09cca41ad25bf8fd4926dbf30",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 6,
+        "externalLlmRequests": 6,
+        "inputTokens": 24076,
+        "outputTokens": 2149,
+        "cacheHitTokens": 19584,
+        "modelWallMs": 10327,
+        "wireRequestBytes": 93091,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 10860,
+        "accumulatedRequestBytes": 80519,
+        "mcpCalls": 30,
+        "rawMcpResultBytes": 8937,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 12303
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "50157aa4384a42137fc59ec16e9736c9b0a2ba94c6e3b0f0047e524d8002c041",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 32,
+          "totalTests": 32,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 32,
+            "totalTests": 32,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules16-r3-ptc",
+      "count": 16,
+      "repeat": 3,
+      "mode": "ptc",
+      "file": "modules16-r3-ptc.json.gz",
+      "sha256": "10a736c8cc5ac8c2263bce5c8ff4cf6e08e1f0b17c8ae2744887648f4a5854d6",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 21,
+        "externalLlmRequests": 21,
+        "inputTokens": 286101,
+        "outputTokens": 5969,
+        "cacheHitTokens": 271616,
+        "modelWallMs": 31602,
+        "wireRequestBytes": 1102575,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 67115,
+        "accumulatedRequestBytes": 1158560,
+        "mcpCalls": 170,
+        "rawMcpResultBytes": 72879,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 38062
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules16-r3-hybrid",
+      "count": 16,
+      "repeat": 3,
+      "mode": "hybrid",
+      "file": "modules16-r3-hybrid.json.gz",
+      "sha256": "0093e6567d13b39b3f3ac2134376b88961543db1b88b16e4ef76ac62a7790010",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 9,
+        "externalLlmRequests": 9,
+        "inputTokens": 49011,
+        "outputTokens": 2307,
+        "cacheHitTokens": 42368,
+        "modelWallMs": 12643,
+        "wireRequestBytes": 189409,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 3111,
+        "initialSystemPromptBytes": 4197,
+        "surfacedResultBytes": 18607,
+        "accumulatedRequestBytes": 187070,
+        "mcpCalls": 71,
+        "rawMcpResultBytes": 23342,
+        "peakMcpConcurrency": 2,
+        "localWallMs": 15576
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    },
+    {
+      "revision": "coding-v3-host-normalization",
+      "id": "modules16-r3-codemode",
+      "count": 16,
+      "repeat": 3,
+      "mode": "codemode",
+      "file": "modules16-r3-codemode.json.gz",
+      "sha256": "5ab665bd6eddfada0ec9b10379ed7d313188bb333dc27b370a75108fea60614b",
+      "passed": true,
+      "metrics": {
+        "modelRequests": 16,
+        "inputTokens": 109564,
+        "outputTokens": 3106,
+        "cacheHitTokens": 97920,
+        "modelWallMs": 19331,
+        "wireRequestBytes": 417505,
+        "rawMcpResultBytes": 37359,
+        "mcpCalls": 78,
+        "peakMcpConcurrency": 1,
+        "peakSubmittedCalls": 1,
+        "surfacedResultBytes": 34492,
+        "localWallMs": 20892
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "9bafe9ee65140b532b03c07ed94e5be55af57ec22b25740f65573cc973592877",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "be51e5bcdfdcdd92aee3ac974602efbc26f1be7f625677f5c29ba862786358f3",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "3f463c95667ea82a16090e282b39f43a7fd2f1f28c5eb3f9e50d599d42014375"
+      },
+      "error": null,
+      "validation": {
+        "passed": true,
+        "build": {
+          "exitCode": 0,
+          "output": ""
+        },
+        "behavior": {
+          "passedTests": 64,
+          "totalTests": 64,
+          "failures": [],
+          "exitCode": 0
+        },
+        "oldApiPaths": [],
+        "independent": {
+          "passed": true,
+          "build": {
+            "exitCode": 0,
+            "output": ""
+          },
+          "behavior": {
+            "passedTests": 64,
+            "totalTests": 64,
+            "failures": [],
+            "exitCode": 0
+          },
+          "oldApiPaths": []
+        },
+        "protectedIntact": true,
+        "hasObservedPass": true
+      }
+    }
+  ],
+  "updatedAt": "2026-10-02T13:57:22.793Z",
+  "priorAttempts": [
+    {
+      "id": "modules8-r1-hybrid",
+      "count": 8,
+      "repeat": 1,
+      "mode": "hybrid",
+      "file": "modules8-r1-hybrid.json.gz",
+      "sha256": "96a4ea30de544b38900c9a18e211c7924d4947b33d73f9e48569065a33cc521d",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 1,
+        "inputTokens": 907,
+        "outputTokens": 83,
+        "cacheHitTokens": 0,
+        "modelWallMs": 855,
+        "wireRequestBytes": 3042,
+        "rawMcpResultBytes": 0,
+        "mcpCalls": 0,
+        "peakMcpConcurrency": 0,
+        "peakSubmittedCalls": 0,
+        "surfacedResultBytes": 1949,
+        "localWallMs": 908
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": "Invalid discovery selection",
+      "validation": {
+        "passed": false,
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 32,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts",
+            "src/modules/module4.ts",
+            "src/modules/module5.ts",
+            "src/modules/module6.ts",
+            "src/modules/module7.ts",
+            "src/modules/module8.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "id": "modules16-r1-hybrid",
+      "count": 16,
+      "repeat": 1,
+      "mode": "hybrid",
+      "file": "modules16-r1-hybrid.json.gz",
+      "sha256": "2e7a7dd67f0f2a6b83c6d7fe0e176ddd8818b6784ecf4464aa8641829a36fa62",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 1,
+        "inputTokens": 909,
+        "outputTokens": 90,
+        "cacheHitTokens": 0,
+        "modelWallMs": 1058,
+        "wireRequestBytes": 3043,
+        "rawMcpResultBytes": 0,
+        "mcpCalls": 0,
+        "peakMcpConcurrency": 0,
+        "peakSubmittedCalls": 0,
+        "surfacedResultBytes": 2061,
+        "localWallMs": 1108
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": "Invalid discovery selection",
+      "validation": {
+        "passed": false,
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module10.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module10.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module11.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module11.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module12.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module12.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module13.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module13.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module14.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module14.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module15.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module15.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module16.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module16.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module9.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module9.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 64,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module10.ts",
+            "src/modules/module11.ts",
+            "src/modules/module12.ts",
+            "src/modules/module13.ts",
+            "src/modules/module14.ts",
+            "src/modules/module15.ts",
+            "src/modules/module16.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts",
+            "src/modules/module4.ts",
+            "src/modules/module5.ts",
+            "src/modules/module6.ts",
+            "src/modules/module7.ts",
+            "src/modules/module8.ts",
+            "src/modules/module9.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "revision": "coding-v2-host-normalization",
+      "id": "modules8-r1-hybrid",
+      "count": 8,
+      "repeat": 1,
+      "mode": "hybrid",
+      "file": "modules8-r1-hybrid-a2.json.gz",
+      "sha256": "de47e4ef71b62664edcb86a6ef6586740ae5b72d67b10ebe91b8f4a68ee4ea52",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 1,
+        "inputTokens": 906,
+        "outputTokens": 87,
+        "cacheHitTokens": 0,
+        "modelWallMs": 824,
+        "wireRequestBytes": 3042,
+        "rawMcpResultBytes": 0,
+        "mcpCalls": 0,
+        "peakMcpConcurrency": 0,
+        "peakSubmittedCalls": 0,
+        "surfacedResultBytes": 1969,
+        "localWallMs": 944
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "4570917df2eac43c2b5724aacaa3c70bf6cef0f2b7eb425d242be8b36be67585",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "a22a25d7ffe0c565a695c7ff386cf8a268decd7ceda27161f0070c6380eec2cf",
+        "coding-matrix.mjs": "a921454f924725a5ec00f7f3e9e0a11e723104fbb291bde2b832a50553b6d114"
+      },
+      "error": "Invalid discovery selection",
+      "validation": {
+        "passed": false,
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 32,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts",
+            "src/modules/module4.ts",
+            "src/modules/module5.ts",
+            "src/modules/module6.ts",
+            "src/modules/module7.ts",
+            "src/modules/module8.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "id": "modules16-r2-hybrid",
+      "count": 16,
+      "repeat": 2,
+      "mode": "hybrid",
+      "file": "modules16-r2-hybrid.json.gz",
+      "sha256": "ae31bf7f5ba22b1302dabab57d80a7d08860387762670f4c015fcb2086dbe761",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 1,
+        "inputTokens": 907,
+        "outputTokens": 88,
+        "cacheHitTokens": 0,
+        "modelWallMs": 1100,
+        "wireRequestBytes": 3043,
+        "rawMcpResultBytes": 0,
+        "mcpCalls": 0,
+        "peakMcpConcurrency": 0,
+        "peakSubmittedCalls": 0,
+        "surfacedResultBytes": 2061,
+        "localWallMs": 1154
+      },
+      "initialDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "finalDigest": "55ffcd474f3ff75930ccaced77190f33f56cbc507b245241d6a5d12765be5d35",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": "Invalid discovery selection",
+      "validation": {
+        "passed": false,
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module10.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module10.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module11.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module11.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module12.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module12.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module13.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module13.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module14.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module14.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module15.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module15.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module16.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module16.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module9.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module9.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 64,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module10.ts",
+            "src/modules/module11.ts",
+            "src/modules/module12.ts",
+            "src/modules/module13.ts",
+            "src/modules/module14.ts",
+            "src/modules/module15.ts",
+            "src/modules/module16.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts",
+            "src/modules/module4.ts",
+            "src/modules/module5.ts",
+            "src/modules/module6.ts",
+            "src/modules/module7.ts",
+            "src/modules/module8.ts",
+            "src/modules/module9.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    },
+    {
+      "id": "modules8-r2-hybrid",
+      "count": 8,
+      "repeat": 2,
+      "mode": "hybrid",
+      "file": "modules8-r2-hybrid.json.gz",
+      "sha256": "081eb668fcadc10aab67fbe0bc79fe6f56a6e088aa1a58a9e079f5676511680c",
+      "passed": false,
+      "metrics": {
+        "modelRequests": 1,
+        "inputTokens": 903,
+        "outputTokens": 90,
+        "cacheHitTokens": 0,
+        "modelWallMs": 721,
+        "wireRequestBytes": 3042,
+        "rawMcpResultBytes": 0,
+        "mcpCalls": 0,
+        "peakMcpConcurrency": 0,
+        "peakSubmittedCalls": 0,
+        "surfacedResultBytes": 2061,
+        "localWallMs": 773
+      },
+      "initialDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "finalDigest": "15cf685e327312bd9be8f1a72d49f07b69768bcfc370acaa5b6d0768208f7acb",
+      "sourceHashes": {
+        "coding-fixture.mjs": "3282d960b4bf9b366dadce97b13fef0640a6536e5aae1ec180426b84e1dcc513",
+        "coding-mcp-server.mjs": "379cfca5bde51ce33758767157b691e5538ac0813204d84c355b4ff073288e93",
+        "coding-pi.mjs": "207bab6c663b655b6108fa84627780d1d3f8648096a5e7c296666e45c02505ae",
+        "coding-ptc.mjs": "13f35f53c5c80f34ef681244f35f50ebcaad3aec5fca44763fb297177205e7ca",
+        "coding-hybrid.mjs": "1cf0211118f69e024b95895c3cb7027f70e6b8acfbbe5c555246d22d81879fc9",
+        "coding-matrix.mjs": "2aac5960bb6b14bb636522c1153184e792f5992eeb18d81c648bf489063b4216"
+      },
+      "error": "Invalid discovery selection",
+      "validation": {
+        "passed": false,
+        "independent": {
+          "passed": false,
+          "build": {
+            "exitCode": 2,
+            "output": "src/modules/module1.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module1.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module2.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module3.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module4.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module5.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(5,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module6.ts(9,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module7.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(4,31): error TS2339: Property 'request' does not exist on type 'Client'.\r\nsrc/modules/module8.ts(8,17): error TS2339: Property 'request' does not exist on type 'Client'.\r\n"
+          },
+          "behavior": {
+            "passedTests": 0,
+            "totalTests": 32,
+            "failures": []
+          },
+          "oldApiPaths": [
+            "src/modules/module1.ts",
+            "src/modules/module2.ts",
+            "src/modules/module3.ts",
+            "src/modules/module4.ts",
+            "src/modules/module5.ts",
+            "src/modules/module6.ts",
+            "src/modules/module7.ts",
+            "src/modules/module8.ts"
+          ]
+        },
+        "protectedIntact": true,
+        "hasObservedPass": false
+      }
+    }
+  ],
+  "completedAt": "2026-10-02T13:57:22.794Z",
+  "calibration": "Host normalization of discovered object arrays only. Original successful tasks retained. Genuine task failures included in 27 primary tasks and never retried to success. Interrupted incomplete runs not part of complete-task statistics.",
+  "budgetMeaning": "24 requests per coding execution phase; hybrid additionally permits one discovery request. Actual hybrid requests 6..10, no budget hit."
+}
