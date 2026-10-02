@@ -31,5 +31,26 @@ for(const o of m.orders) body+=`| ${o} | ${num(stat(o,18,'codemode','mcpCalls'))
 body+='\n1条订单这一行是无候选边界：只读列表，不做支付和物流核对。它能展示发现的固定开销，却不代表正常订单核对吞吐。12和48条订单的数据更能说明代码内汇总的价值：全部候选仍然被核对，模型读取的却是短报告；并行 Tool Calling 虽减少等待轮次，仍把原始结果放进模型上下文。\n\n### 延迟要结合轮数、并发和执行配置看\n\n为了避免只挑一个有利组合，这里列出全部九个组合。输入和耗时均为有效运行的中位数，耗时是端到端毫秒；通过数分别为Codemode/PTC：\n\n| 订单 / 工具 | Codemode 输入 | PTC 输入 | Codemode 耗时 ms | PTC 耗时 ms | 通过 / 3（C / P） |\n| --- | ---: | ---: | ---: | ---: | --- |\n';
 for(const o of m.orders) for(const t of m.tools) body+=`| ${o} / ${t} | ${num(stat(o,t,'codemode','inputTokens'))} | ${num(stat(o,t,'ptc','inputTokens'))} | ${num(stat(o,t,'codemode','localWallMs'))} | ${num(stat(o,t,'ptc','localWallMs'))} | ${get(o,t,'codemode').passed} / ${get(o,t,'ptc').passed} |\n`;
 body+='\n本实验提示明确要求 Codemode 先发现再写业务脚本，PTC用已提供SDK写一段程序。因此正常的代码路径通常是3轮和2轮，这个差异来自所测策略，不能当作框架强制下限。逐步调用的实际轮数也可能受模型一次提交多个请求影响，即使宿主仍逐个执行。\n\n大数据组还有重要配置差异：Pi并行路径可以同时执行52路核对，Harness被限制在8路，超出的调用排队。网络延迟、缓存命中、生成代码长度、进程启动和执行并发都进入端到端时间。这里的观测能说明当前路径的开销，不能拆解成两个执行器的纯性能排名。\n\n校准阶段也暴露了一个工程问题：PTC待处理调用容量16无法容纳52个请求，引起运行错误与后续重复查询。我们将容量改成64，实际并发仍为8，并完整重跑所有PTC组合；旧记录保留在附件中。运行正常以后再比较数据流，才有意义。\n\n## 把它应用到自己的智能体\n\n选择代码编排时，先看任务是不是有能交给程序执行的规则：字段筛选、批量核对、分页、关联、排序和汇总。把这些操作留在运行时，通常比让模型反复读完整中间结果更容易控制上下文。自然语言判断仍可由模型负责，但需要给它输出足够的事实与来源。\n\n选择接口暴露方式时，再看工具集合。少量稳定接口可以直接提供契约；大量工具而每次只用少数时，可以考虑按需发现。不要把“首轮没有MCP JSON schema”误解成零输入成本，SDK、入口、发现说明和历史都会进入请求。\n\n最后要验证执行过程：是否等待了全部异步调用，候选是否全部核对，有没有重复查询，输出是否真的精简，失败是否可追踪。原始数据虽然可以不交给模型，仍经过服务、宿主和运行时，不意味着它从系统里消失。\n\n这份矩阵只是一个合成业务、一个模型和三次重复。工具描述固定、缓存未清空，提示策略受控，执行并发没有拉齐，也没有测试其他平台。它支持对输入开销来源的解释，以及这些配置下的结果；不足以证明PTC普遍更快或Codemode总账单更低。\n\n## 运行 Demo 与检查证据\n\n```powershell\ngit clone https://github.com/baidd1011/pi-codemode-vs-ptc.git\ncd pi-codemode-vs-ptc\nnode scripts/verify-evidence.mjs\nnode scripts/verify-matrix.mjs\ncd demo\nnpm ci\nnode setup-ptc.mjs\nnode verify.mjs\nnode verify-ptc.mjs\nnode server.mjs\n```\n\n打开 <http://127.0.0.1:4317/>。Demo可浏览已有单组在线记录的输入输出、程序及调用时间线；矩阵的108条记录通过CSV、JSON及gzip附件查看，界面未增加矩阵选择器。\n\n若要真实在线运行，在本机从 `.env.example` 创建 `.env.local` 并填写Key：\n\n```powershell\nnode online.mjs --check\nnode online.mjs   # 单个默认组合\nnode matrix.mjs   # 108次任务；断点续跑；会消耗在线API用量\n```\n\n矩阵结果写入本机 `demo/output/matrix-v2/`。每条在线路径最多64次模型请求，130次业务调用；单次请求最多等待90秒。Windows PTC必须能创建受限令牌；沙箱启动失败时返回错误，不自动降级。其他平台尚未同等验证。\n\n实现入口：[Pi三路径](demo/engine.mjs)、[官方PTC组合和MCP bridge](demo/ptc.mjs)、[在线适配](demo/deepseek.mjs)、[矩阵运行器](demo/matrix.mjs)、[执行核验](demo/benchmark-checks.mjs)。版本由[Pi锁文件](demo/package-lock.json)和[Harness锁文件](demo/ptc-package-lock.json)固定。\n\n公开证据：[矩阵说明](docs/matrix-evidence.md)、[逐次CSV](results/matrix/metrics.csv)、[聚合JSON](results/matrix/summary.json)、[矩阵manifest](results/matrix/manifest.json)。此前12单/18工具的[初始单组记录](results/online-2026-10-02.json)和[初始指标](results/summary.json)也保留，不与新矩阵拼成一组统计。API Key、Authorization header和个人配置未上传；本机路径已替换，采集时的字节值原样保留。\n';
+// Derive conclusions from paired cell medians rather than mixing runs or totals.
+const inputSaving=(o,t)=>100*(1-stat(o,t,'codemode','inputTokens')/stat(o,t,'ptc','inputTokens'));
+const timeSaving=(o,t)=>100*(1-stat(o,t,'ptc','localWallMs')/stat(o,t,'codemode','localWallMs'));
+const range=values=>`${Math.min(...values).toFixed(1)}%–${Math.max(...values).toFixed(1)}%`;
+const delaySavings=m.orders.flatMap(o=>m.tools.map(t=>timeSaving(o,t)));
+const conclusions=`
+## 本次实验的明确结论
+
+在所测模型、提示策略和运行配置下，结论可以明确写为：**PTC 在九个组合中都取得更低的端到端耗时中位数；Codemode 的输入量优势出现在较大的工具集合中，三个工具时则由 PTC 占优。** 两条代码路径都能把中间数据留在运行时，但接口准备方式形成了不同的开销。
+
+**一、工具多而实际只用少数时，Codemode 的输入优势更明显。** 本任务始终只使用三个业务接口。18 个工具时，Codemode 相比 PTC 少输入 ${range(m.orders.map(o=>inputSaving(o,18)))}；60 个工具时，少输入 ${range(m.orders.map(o=>inputSaving(o,60)))}。因此，这组数据支持“较大的工具集合、稀疏的实际使用，有利于按需发现”的判断。这里比较的是 API 输入 token，含缓存命中，不是总账单。
+
+**二、少量工具时，PTC 同时占据输入量和延迟优势。** 只有三个工具时，Codemode 比 PTC 多输入 ${range(m.orders.map(o=>-inputSaving(o,3)))}，并没有更省。接口发现本身有说明和往返成本；工具数量不足以抵消这笔成本时，直接预载 SDK 消耗的输入更少。因此，不能把“工具越多越有输入优势”改写成“Codemode 在任何工具数量下都更好”。
+
+**三、PTC 的耗时优势在本次矩阵中一致出现。** 九个组合里，PTC 的端到端耗时中位数均低于 Codemode，降幅为 ${range(delaySavings)}。所以可以明确说：**在本实验配置下，PTC 稳定取得更低的耗时中位数。** 这里的“稳定”指九个组合的中位数方向一致，不表示每次单独运行都更快。预载 SDK 的路径通常用两轮模型请求，先发现再编排的路径通常用三轮；但并发上限、执行器和缓存也不同，不能把全部降幅归因于少一轮，更不能推出执行器的普遍性能排名。
+
+**四、面对大量中间结果，两条代码路径都明显减少了模型输入。** 固定18个工具、48条订单时，同样完成53次业务调用，并行 Tool Calling 输入 ${num(stat(48,18,'direct-batch','inputTokens'))} token，Codemode 输入 ${num(stat(48,18,'codemode','inputTokens'))}，PTC 输入 ${num(stat(48,18,'ptc','inputTokens'))}，分别减少 ${(100*(1-stat(48,18,'codemode','inputTokens')/stat(48,18,'direct-batch','inputTokens'))).toFixed(1)}% 和 ${(100*(1-stat(48,18,'ptc','inputTokens')/stat(48,18,'direct-batch','inputTokens'))).toFixed(1)}%。这支持“把筛选和汇总留在程序里，可以减少模型读取中间数据”的结论，收益并非仅来自并行。
+
+以上结论以修正配置后的108次完整任务为依据，业务事实和执行过程全部通过核验；校准失败另行保留。当前证据明确支持这些配置下的输入和耗时比较，尚未证明不同模型、不同业务、相同并发上限或独立冷缓存条件下也保持同样结果。
+`;
+body=body.replace('\n## 把它应用到自己的智能体',conclusions+'\n## 把它应用到自己的智能体');
 await writeFile(new URL('README.md',root),body);
 console.log(`Built article and appendix from ${m.runs.length} runs; ${summary.passed} passed`);
