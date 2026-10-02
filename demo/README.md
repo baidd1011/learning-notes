@@ -21,6 +21,7 @@ node server.mjs
 ```powershell
 node online.mjs --check
 node online.mjs
+node matrix.mjs # 3种订单数 × 3种工具数 × 4条路径 × 3次重复；按ID续跑
 ```
 
 `node run.mjs` 会重新执行三条 Pi 固定回放路径并更新本机 latest 记录，外部 LLM 请求为 0；不把回放 token 当作在线用量。PTC 无 Key 验证由 `node verify-ptc.mjs` 单独执行。
@@ -30,6 +31,7 @@ node online.mjs
 | 文件 | 职责 |
 | --- | --- |
 | `engine.mjs` | 三条 Pi 路径及四路径对照入口 |
+| `matrix.mjs` | 108次在线矩阵、轮换顺序、断点续跑和脱敏压缩记录 |
 | `ptc.mjs` | 官方 Harness AgentLoop / ToolRuntime / SDK / Node PTC，stdio MCP bridge |
 | `deepseek.mjs` | 本地配置、真实 HTTP 适配及 usage 采集 |
 | `prompts.mjs` | 共享业务规则 |

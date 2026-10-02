@@ -43,7 +43,7 @@ const fields = header.split(',').slice(1);
 assert.equal(lines.length, 4);
 for (const line of lines) { const [key, ...values] = line.split(','); fields.forEach((f, i) => assert.equal(values[i], String(record[key].metrics[f] ?? ''))); }
 const markdown = await readFile(new URL('README.md', root), 'utf8');
-assert.ok(markdown.includes('6,086') && markdown.includes('7,856') && markdown.includes('3,757 ms'));
+assert.ok(markdown.includes('QuickJS') && markdown.includes('run_code') && markdown.includes('results/matrix/'));
 assert.ok(!/C:[\\/]+Users[\\/]/i.test(source));
 assert.ok(!/sk-[A-Za-z0-9_-]{16,}/.test(source));
 assert.ok(!/gh[pousr]_[A-Za-z0-9]{20,}/.test(source));

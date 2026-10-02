@@ -102,7 +102,7 @@ export async function runPtc(options = {}) {
       [llm.default], [session.default], [projection.default],
       [prompt.default, { includeHarnessIdentity: false, includeRuntimeContext: false, personaPrefix: COMMON_PROMPT + '\nUse ONE run_code business program. The complete SDK is already in the system prompt. All tools return canonical JSON values directly (no MCP wrapper); await every call. Filter with all three conditions, verify all candidates with Promise.all, and return ONLY the compact final report. Do not print raw data. Use only tools bindings, no imports, files, environment, or network. After the report returns, give the JSON final answer without further tool calls.' }],
       [fs.default, { cwd: workspace }], [subprocess.LocalSubprocessRuntime], [sandbox.default, {}], [policy.default, { mode: 'read-only', workspaceRoot: workspace }],
-      [runtime.default, { timeoutMs: 30000, maxTimeoutMs: 30000, maxOutputBytes: 16000, maxOldGenerationSizeMb: 128, maxMessageBytes: 1000000, maxPendingCalls: 16, graceMs: 1000 }],
+      [runtime.default, { timeoutMs: 30000, maxTimeoutMs: 30000, maxOutputBytes: 16000, maxOldGenerationSizeMb: 128, maxMessageBytes: 1000000, maxPendingCalls: 64, graceMs: 1000 }],
       [tool.default, { mode: 'ptc', maxParallelSubCalls: 8 }], [agentRegistry.default], [loop.default, { agents: [], maxParallelToolCalls: 8 }],
     ]) { await ctx.plugin(plugin, settings).await(); }
     ctx.on('session/event', (_subject, event) => { sessionEvents.push(copy(event)); });

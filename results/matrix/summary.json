@@ -1,0 +1,2134 @@
+{
+  "revision": "matrix-v2",
+  "completedAt": "2026-10-02T12:26:01.105Z",
+  "attempts": 108,
+  "passed": 108,
+  "aggregation": "median/min/max of valid attempts only; all failures retained separately",
+  "groups": [
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 2031,
+          "min": 2031,
+          "max": 2031
+        },
+        "outputTokens": {
+          "median": 122,
+          "min": 122,
+          "max": 122
+        },
+        "cacheHitTokens": {
+          "median": 1664,
+          "min": 1536,
+          "max": 1664
+        },
+        "localWallMs": {
+          "median": 2187,
+          "min": 2053,
+          "max": 2226
+        },
+        "modelWallMs": {
+          "median": 2090,
+          "min": 1955,
+          "max": 2094
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 2048,
+          "min": 2048,
+          "max": 2048
+        },
+        "outputTokens": {
+          "median": 144,
+          "min": 139,
+          "max": 144
+        },
+        "cacheHitTokens": {
+          "median": 1664,
+          "min": 1536,
+          "max": 1664
+        },
+        "localWallMs": {
+          "median": 1980,
+          "min": 1810,
+          "max": 2260
+        },
+        "modelWallMs": {
+          "median": 1855,
+          "min": 1716,
+          "max": 2166
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 5498,
+          "min": 5478,
+          "max": 5498
+        },
+        "outputTokens": {
+          "median": 746,
+          "min": 717,
+          "max": 746
+        },
+        "cacheHitTokens": {
+          "median": 4864,
+          "min": 4864,
+          "max": 4864
+        },
+        "localWallMs": {
+          "median": 4602,
+          "min": 4503,
+          "max": 4650
+        },
+        "modelWallMs": {
+          "median": 4455,
+          "min": 4385,
+          "max": 4540
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 2039,
+          "min": 2039,
+          "max": 2039
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 3,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 4435,
+          "min": 4434,
+          "max": 4435
+        },
+        "outputTokens": {
+          "median": 467,
+          "min": 462,
+          "max": 469
+        },
+        "cacheHitTokens": {
+          "median": 4095,
+          "min": 3968,
+          "max": 4095
+        },
+        "localWallMs": {
+          "median": 2924,
+          "min": 2724,
+          "max": 3189
+        },
+        "modelWallMs": {
+          "median": 2512,
+          "min": 2382,
+          "max": 2838
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 122,
+          "min": 122,
+          "max": 122
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 6162,
+          "min": 6162,
+          "max": 6162
+        },
+        "outputTokens": {
+          "median": 126,
+          "min": 126,
+          "max": 126
+        },
+        "cacheHitTokens": {
+          "median": 5760,
+          "min": 5760,
+          "max": 5760
+        },
+        "localWallMs": {
+          "median": 1934,
+          "min": 1878,
+          "max": 2032
+        },
+        "modelWallMs": {
+          "median": 1837,
+          "min": 1777,
+          "max": 1931
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 6178,
+          "min": 6178,
+          "max": 6180
+        },
+        "outputTokens": {
+          "median": 169,
+          "min": 164,
+          "max": 189
+        },
+        "cacheHitTokens": {
+          "median": 5760,
+          "min": 5760,
+          "max": 5760
+        },
+        "localWallMs": {
+          "median": 2119,
+          "min": 1667,
+          "max": 2196
+        },
+        "modelWallMs": {
+          "median": 2017,
+          "min": 1561,
+          "max": 2103
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 5944,
+          "min": 5905,
+          "max": 7450
+        },
+        "outputTokens": {
+          "median": 775,
+          "min": 691,
+          "max": 777
+        },
+        "cacheHitTokens": {
+          "median": 5376,
+          "min": 4736,
+          "max": 6656
+        },
+        "localWallMs": {
+          "median": 4529,
+          "min": 4482,
+          "max": 4653
+        },
+        "modelWallMs": {
+          "median": 4408,
+          "min": 4367,
+          "max": 4540
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 2915,
+          "min": 2915,
+          "max": 5776
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 18,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 7622,
+          "min": 7622,
+          "max": 7623
+        },
+        "outputTokens": {
+          "median": 466,
+          "min": 466,
+          "max": 474
+        },
+        "cacheHitTokens": {
+          "median": 7296,
+          "min": 7296,
+          "max": 7296
+        },
+        "localWallMs": {
+          "median": 3238,
+          "min": 2856,
+          "max": 3395
+        },
+        "modelWallMs": {
+          "median": 2909,
+          "min": 2525,
+          "max": 3060
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 122,
+          "min": 122,
+          "max": 122
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 17724,
+          "min": 17724,
+          "max": 17724
+        },
+        "outputTokens": {
+          "median": 143,
+          "min": 143,
+          "max": 144
+        },
+        "cacheHitTokens": {
+          "median": 17280,
+          "min": 17280,
+          "max": 17280
+        },
+        "localWallMs": {
+          "median": 2315,
+          "min": 2195,
+          "max": 2414
+        },
+        "modelWallMs": {
+          "median": 2215,
+          "min": 2089,
+          "max": 2311
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 17740,
+          "min": 17740,
+          "max": 17740
+        },
+        "outputTokens": {
+          "median": 167,
+          "min": 144,
+          "max": 167
+        },
+        "cacheHitTokens": {
+          "median": 17280,
+          "min": 17280,
+          "max": 17280
+        },
+        "localWallMs": {
+          "median": 2085,
+          "min": 2018,
+          "max": 2146
+        },
+        "modelWallMs": {
+          "median": 1979,
+          "min": 1914,
+          "max": 2048
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 5883,
+          "min": 5876,
+          "max": 7369
+        },
+        "outputTokens": {
+          "median": 706,
+          "min": 701,
+          "max": 715
+        },
+        "cacheHitTokens": {
+          "median": 5376,
+          "min": 5248,
+          "max": 6528
+        },
+        "localWallMs": {
+          "median": 3987,
+          "min": 3778,
+          "max": 4133
+        },
+        "modelWallMs": {
+          "median": 3871,
+          "min": 3655,
+          "max": 4009
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 2902,
+          "min": 2902,
+          "max": 5744
+        }
+      }
+    },
+    {
+      "count": 1,
+      "toolCount": 60,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 16541,
+          "min": 16541,
+          "max": 16541
+        },
+        "outputTokens": {
+          "median": 474,
+          "min": 474,
+          "max": 475
+        },
+        "cacheHitTokens": {
+          "median": 16128,
+          "min": 16128,
+          "max": 16128
+        },
+        "localWallMs": {
+          "median": 3036,
+          "min": 3030,
+          "max": 3189
+        },
+        "modelWallMs": {
+          "median": 2704,
+          "min": 2685,
+          "max": 2843
+        },
+        "mcpCalls": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 517,
+          "min": 517,
+          "max": 517
+        },
+        "surfacedResultBytes": {
+          "median": 122,
+          "min": 122,
+          "max": 122
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 10,
+          "min": 10,
+          "max": 10
+        },
+        "inputTokens": {
+          "median": 46620,
+          "min": 46604,
+          "max": 46684
+        },
+        "outputTokens": {
+          "median": 952,
+          "min": 951,
+          "max": 974
+        },
+        "cacheHitTokens": {
+          "median": 40576,
+          "min": 39680,
+          "max": 40576
+        },
+        "localWallMs": {
+          "median": 9576,
+          "min": 9024,
+          "max": 10465
+        },
+        "modelWallMs": {
+          "median": 9256,
+          "min": 8715,
+          "max": 10148
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 10871,
+          "min": 10840,
+          "max": 10871
+        },
+        "outputTokens": {
+          "median": 867,
+          "min": 853,
+          "max": 896
+        },
+        "cacheHitTokens": {
+          "median": 5248,
+          "min": 4352,
+          "max": 10240
+        },
+        "localWallMs": {
+          "median": 4485,
+          "min": 3798,
+          "max": 5154
+        },
+        "modelWallMs": {
+          "median": 4358,
+          "min": 3673,
+          "max": 5031
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 5655,
+          "min": 5655,
+          "max": 6722
+        },
+        "outputTokens": {
+          "median": 839,
+          "min": 836,
+          "max": 870
+        },
+        "cacheHitTokens": {
+          "median": 4992,
+          "min": 4992,
+          "max": 6016
+        },
+        "localWallMs": {
+          "median": 4526,
+          "min": 4067,
+          "max": 4617
+        },
+        "modelWallMs": {
+          "median": 4383,
+          "min": 3925,
+          "max": 4475
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 2773,
+          "min": 2773,
+          "max": 4646
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 3,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 4671,
+          "min": 4671,
+          "max": 4671
+        },
+        "outputTokens": {
+          "median": 670,
+          "min": 670,
+          "max": 670
+        },
+        "cacheHitTokens": {
+          "median": 4224,
+          "min": 4224,
+          "max": 4224
+        },
+        "localWallMs": {
+          "median": 3566,
+          "min": 3438,
+          "max": 3616
+        },
+        "modelWallMs": {
+          "median": 3203,
+          "min": 3057,
+          "max": 3247
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 1019,
+          "min": 1019,
+          "max": 1019
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 10,
+          "min": 10,
+          "max": 10
+        },
+        "inputTokens": {
+          "median": 67135,
+          "min": 67127,
+          "max": 67307
+        },
+        "outputTokens": {
+          "median": 972,
+          "min": 940,
+          "max": 1032
+        },
+        "cacheHitTokens": {
+          "median": 61056,
+          "min": 61056,
+          "max": 61184
+        },
+        "localWallMs": {
+          "median": 9439,
+          "min": 9385,
+          "max": 9447
+        },
+        "modelWallMs": {
+          "median": 9114,
+          "min": 9064,
+          "max": 9118
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 17091,
+          "min": 17073,
+          "max": 17100
+        },
+        "outputTokens": {
+          "median": 853,
+          "min": 826,
+          "max": 906
+        },
+        "cacheHitTokens": {
+          "median": 11520,
+          "min": 11392,
+          "max": 11520
+        },
+        "localWallMs": {
+          "median": 4453,
+          "min": 4394,
+          "max": 4541
+        },
+        "modelWallMs": {
+          "median": 4317,
+          "min": 4257,
+          "max": 4414
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 7582,
+          "min": 6043,
+          "max": 7591
+        },
+        "outputTokens": {
+          "median": 859,
+          "min": 833,
+          "max": 866
+        },
+        "cacheHitTokens": {
+          "median": 5632,
+          "min": 5376,
+          "max": 6784
+        },
+        "localWallMs": {
+          "median": 4794,
+          "min": 4227,
+          "max": 4903
+        },
+        "modelWallMs": {
+          "median": 4645,
+          "min": 4081,
+          "max": 4758
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 6501,
+          "min": 3592,
+          "max": 6501
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 18,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 7855,
+          "min": 7855,
+          "max": 7855
+        },
+        "outputTokens": {
+          "median": 689,
+          "min": 669,
+          "max": 690
+        },
+        "cacheHitTokens": {
+          "median": 7552,
+          "min": 7552,
+          "max": 7552
+        },
+        "localWallMs": {
+          "median": 3909,
+          "min": 3745,
+          "max": 4016
+        },
+        "modelWallMs": {
+          "median": 3512,
+          "min": 3374,
+          "max": 3651
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 1031,
+          "min": 1031,
+          "max": 1031
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 10,
+          "min": 10,
+          "max": 10
+        },
+        "inputTokens": {
+          "median": 125001,
+          "min": 124897,
+          "max": 125097
+        },
+        "outputTokens": {
+          "median": 1005,
+          "min": 989,
+          "max": 1006
+        },
+        "cacheHitTokens": {
+          "median": 119037,
+          "min": 118784,
+          "max": 119165
+        },
+        "localWallMs": {
+          "median": 10005,
+          "min": 9364,
+          "max": 10878
+        },
+        "modelWallMs": {
+          "median": 9679,
+          "min": 9028,
+          "max": 10540
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 34414,
+          "min": 34399,
+          "max": 34418
+        },
+        "outputTokens": {
+          "median": 890,
+          "min": 863,
+          "max": 891
+        },
+        "cacheHitTokens": {
+          "median": 28928,
+          "min": 28800,
+          "max": 28928
+        },
+        "localWallMs": {
+          "median": 4528,
+          "min": 4526,
+          "max": 4711
+        },
+        "modelWallMs": {
+          "median": 4388,
+          "min": 4386,
+          "max": 4557
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 6093,
+          "min": 6069,
+          "max": 7536
+        },
+        "outputTokens": {
+          "median": 848,
+          "min": 818,
+          "max": 877
+        },
+        "cacheHitTokens": {
+          "median": 5504,
+          "min": 5376,
+          "max": 6784
+        },
+        "localWallMs": {
+          "median": 4717,
+          "min": 4481,
+          "max": 4874
+        },
+        "modelWallMs": {
+          "median": 4568,
+          "min": 4332,
+          "max": 4722
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 3750,
+          "min": 3723,
+          "max": 6451
+        }
+      }
+    },
+    {
+      "count": 12,
+      "toolCount": 60,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 16778,
+          "min": 16765,
+          "max": 16779
+        },
+        "outputTokens": {
+          "median": 680,
+          "min": 671,
+          "max": 682
+        },
+        "cacheHitTokens": {
+          "median": 16256,
+          "min": 16256,
+          "max": 16256
+        },
+        "localWallMs": {
+          "median": 3549,
+          "min": 3326,
+          "max": 3633
+        },
+        "modelWallMs": {
+          "median": 3176,
+          "min": 2931,
+          "max": 3254
+        },
+        "mcpCalls": {
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 33403,
+          "min": 33403,
+          "max": 33403
+        },
+        "surfacedResultBytes": {
+          "median": 1001,
+          "min": 986,
+          "max": 1031
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 28,
+          "min": 28,
+          "max": 28
+        },
+        "inputTokens": {
+          "median": 638919,
+          "min": 638919,
+          "max": 638919
+        },
+        "outputTokens": {
+          "median": 2999,
+          "min": 2988,
+          "max": 3012
+        },
+        "cacheHitTokens": {
+          "median": 633472,
+          "min": 603520,
+          "max": 633472
+        },
+        "localWallMs": {
+          "median": 28285,
+          "min": 28086,
+          "max": 29441
+        },
+        "modelWallMs": {
+          "median": 26767,
+          "min": 26571,
+          "max": 27867
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 47494,
+          "min": 47494,
+          "max": 47494
+        },
+        "outputTokens": {
+          "median": 2515,
+          "min": 2458,
+          "max": 2535
+        },
+        "cacheHitTokens": {
+          "median": 46976,
+          "min": 10496,
+          "max": 46976
+        },
+        "localWallMs": {
+          "median": 8640,
+          "min": 7818,
+          "max": 8706
+        },
+        "modelWallMs": {
+          "median": 8491,
+          "min": 7685,
+          "max": 8569
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 52,
+          "min": 52,
+          "max": 52
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 6683,
+          "min": 5672,
+          "max": 6755
+        },
+        "outputTokens": {
+          "median": 862,
+          "min": 832,
+          "max": 909
+        },
+        "cacheHitTokens": {
+          "median": 5120,
+          "min": 4992,
+          "max": 6016
+        },
+        "localWallMs": {
+          "median": 4399,
+          "min": 4279,
+          "max": 4684
+        },
+        "modelWallMs": {
+          "median": 4251,
+          "min": 4123,
+          "max": 4525
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 52,
+          "min": 52,
+          "max": 52
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 4617,
+          "min": 2768,
+          "max": 4668
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 3,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 4674,
+          "min": 4673,
+          "max": 4674
+        },
+        "outputTokens": {
+          "median": 680,
+          "min": 670,
+          "max": 688
+        },
+        "cacheHitTokens": {
+          "median": 4096,
+          "min": 4096,
+          "max": 4224
+        },
+        "localWallMs": {
+          "median": 3954,
+          "min": 3771,
+          "max": 4290
+        },
+        "modelWallMs": {
+          "median": 3423,
+          "min": 3234,
+          "max": 3756
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 1023,
+          "min": 1023,
+          "max": 1023
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 54,
+          "min": 54,
+          "max": 54
+        },
+        "inputTokens": {
+          "median": 1372437,
+          "min": 1372325,
+          "max": 1373234
+        },
+        "outputTokens": {
+          "median": 3214,
+          "min": 3195,
+          "max": 3225
+        },
+        "cacheHitTokens": {
+          "median": 1335040,
+          "min": 1331840,
+          "max": 1336832
+        },
+        "localWallMs": {
+          "median": 48899,
+          "min": 48008,
+          "max": 49246
+        },
+        "modelWallMs": {
+          "median": 47325,
+          "min": 46396,
+          "max": 47676
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 53689,
+          "min": 53689,
+          "max": 53689
+        },
+        "outputTokens": {
+          "median": 2469,
+          "min": 2462,
+          "max": 2524
+        },
+        "cacheHitTokens": {
+          "median": 19968,
+          "min": 16640,
+          "max": 53120
+        },
+        "localWallMs": {
+          "median": 8540,
+          "min": 8278,
+          "max": 8559
+        },
+        "modelWallMs": {
+          "median": 8396,
+          "min": 8143,
+          "max": 8421
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 52,
+          "min": 52,
+          "max": 52
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 6066,
+          "min": 6059,
+          "max": 6066
+        },
+        "outputTokens": {
+          "median": 844,
+          "min": 765,
+          "max": 851
+        },
+        "cacheHitTokens": {
+          "median": 5376,
+          "min": 5376,
+          "max": 5376
+        },
+        "localWallMs": {
+          "median": 4413,
+          "min": 3994,
+          "max": 4428
+        },
+        "modelWallMs": {
+          "median": 4180,
+          "min": 3848,
+          "max": 4222
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 52,
+          "min": 52,
+          "max": 52
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 3644,
+          "min": 3626,
+          "max": 3644
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 18,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 7858,
+          "min": 7858,
+          "max": 7859
+        },
+        "outputTokens": {
+          "median": 682,
+          "min": 678,
+          "max": 687
+        },
+        "cacheHitTokens": {
+          "median": 7424,
+          "min": 7424,
+          "max": 7552
+        },
+        "localWallMs": {
+          "median": 3745,
+          "min": 3612,
+          "max": 3851
+        },
+        "modelWallMs": {
+          "median": 3210,
+          "min": 3072,
+          "max": 3316
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 1035,
+          "min": 1035,
+          "max": 1035
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "direct",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 54,
+          "min": 54,
+          "max": 54
+        },
+        "inputTokens": {
+          "median": 1684455,
+          "min": 1679801,
+          "max": 1687151
+        },
+        "outputTokens": {
+          "median": 3196,
+          "min": 2981,
+          "max": 3272
+        },
+        "cacheHitTokens": {
+          "median": 1647104,
+          "min": 1642624,
+          "max": 1650944
+        },
+        "localWallMs": {
+          "median": 48830,
+          "min": 45699,
+          "max": 49610
+        },
+        "modelWallMs": {
+          "median": 47195,
+          "min": 44060,
+          "max": 47953
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "direct-batch",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 71032,
+          "min": 71032,
+          "max": 71032
+        },
+        "outputTokens": {
+          "median": 2503,
+          "min": 2490,
+          "max": 2540
+        },
+        "cacheHitTokens": {
+          "median": 70400,
+          "min": 70400,
+          "max": 70400
+        },
+        "localWallMs": {
+          "median": 8918,
+          "min": 8655,
+          "max": 9155
+        },
+        "modelWallMs": {
+          "median": 8765,
+          "min": 8512,
+          "max": 9009
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 52,
+          "min": 52,
+          "max": 52
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "codemode",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "inputTokens": {
+          "median": 6096,
+          "min": 6068,
+          "max": 7567
+        },
+        "outputTokens": {
+          "median": 807,
+          "min": 779,
+          "max": 850
+        },
+        "cacheHitTokens": {
+          "median": 5504,
+          "min": 5376,
+          "max": 5504
+        },
+        "localWallMs": {
+          "median": 4184,
+          "min": 4038,
+          "max": 4571
+        },
+        "modelWallMs": {
+          "median": 4032,
+          "min": 3877,
+          "max": 4406
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 52,
+          "min": 52,
+          "max": 52
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 3754,
+          "min": 3709,
+          "max": 6446
+        }
+      }
+    },
+    {
+      "count": 48,
+      "toolCount": 60,
+      "mode": "ptc",
+      "attempts": 3,
+      "passed": 3,
+      "stats": {
+        "modelRequests": {
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "inputTokens": {
+          "median": 16771,
+          "min": 16768,
+          "max": 16782
+        },
+        "outputTokens": {
+          "median": 679,
+          "min": 671,
+          "max": 697
+        },
+        "cacheHitTokens": {
+          "median": 16256,
+          "min": 16256,
+          "max": 16256
+        },
+        "localWallMs": {
+          "median": 3810,
+          "min": 3608,
+          "max": 4452
+        },
+        "modelWallMs": {
+          "median": 3247,
+          "min": 3012,
+          "max": 3871
+        },
+        "mcpCalls": {
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "peakMcpConcurrency": {
+          "median": 8,
+          "min": 8,
+          "max": 8
+        },
+        "rawMcpResultBytes": {
+          "median": 203576,
+          "min": 203576,
+          "max": 203576
+        },
+        "surfacedResultBytes": {
+          "median": 990,
+          "min": 990,
+          "max": 1005
+        }
+      }
+    }
+  ],
+  "failures": []
+}
