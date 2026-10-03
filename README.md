@@ -1,5 +1,7 @@
 # 从工具调用到程序编排：Pi Codemode、DeepSeek Harness PTC 与融合实现
 
+> 文章导航：[统一技术文章目录](https://github.com/baidd1011/tech-notes) · [本文阅读页](https://github.com/baidd1011/tech-notes/blob/main/articles/pi-codemode-vs-ptc.md)。本仓库继续保存实验代码、演示与结果数据。
+
 **简体中文** | [English](README.en.md)
 
 让模型处理一项任务时，工具接口怎样交给它，工具结果又怎样回到它的上下文？这两个边界决定了大量输入开销，也影响模型需要参与多少次决策。
