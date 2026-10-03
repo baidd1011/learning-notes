@@ -1,5 +1,7 @@
 # 从工具调用到程序编排：Pi Codemode、DeepSeek Harness PTC 与融合实现
 
+> 文章目录：[tech-notes](https://github.com/baidd1011/tech-notes) · [统一正文](https://github.com/baidd1011/tech-notes/blob/main/articles/pi-codemode-vs-ptc.md)。本目录保存完整实验材料。
+
 **简体中文** | [English](../README.en.md)
 
 让模型处理一项任务时，工具接口怎样交给它，工具结果又怎样回到它的上下文？这两个边界决定了大量输入开销，也影响模型需要参与多少次决策。
@@ -232,8 +234,8 @@ manifest 索引的 gzip 附件包含真实请求体、API usage、响应、生�
 先核验已有证据，不需要在线 API Key：
 
 ```powershell
-git clone https://github.com/baidd1011/pi-codemode-vs-ptc.git
-cd pi-codemode-vs-ptc
+git clone https://github.com/baidd1011/tech-notes.git
+cd tech-notes/examples/pi-codemode-vs-ptc
 node scripts/verify-evidence.mjs
 node scripts/verify-matrix.mjs
 node scripts/verify-hybrid.mjs

@@ -1,8 +1,8 @@
 # 从工具调用到程序编排：Pi Codemode、DeepSeek Harness PTC 与融合实现
 
-> 收录日期：2026-10-03 · 来源：[原仓库](https://github.com/baidd1011/pi-codemode-vs-ptc) · [收录时源版本 `f7e0134`](https://github.com/baidd1011/pi-codemode-vs-ptc/commit/f7e013415a6c29a9169c45018efa36258c4b0fe6)
+> 发布日期：2026-10-02 · 最近核对：2026-10-03 · 迁移日期：2026-10-03 · [原文源提交 `f7e0134`](https://github.com/baidd1011/tech-notes/commit/f7e013415a6c29a9169c45018efa36258c4b0fe6)
 
-**简体中文** | [English](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/README.en.md)
+**简体中文** | [English](../examples/pi-codemode-vs-ptc/README.en.md)
 
 让模型处理一项任务时，工具接口怎样交给它，工具结果又怎样回到它的上下文？这两个边界决定了大量输入开销，也影响模型需要参与多少次决策。
 
@@ -76,7 +76,7 @@ text({ checkedCount: checked.length });
 
 所有发现与工具调用都要正确等待 Promise。脚本结束时仍在执行的调用会被取消；已经完成的外部修改也不会因为后续脚本报错而自动回滚。小型跨调用状态可以用 `store()/load()` 保存，不能把它当成无限原始数据缓存。
 
-对应实现见 [Pi 路径](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/engine.mjs)与[编码路径](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/coding-pi.mjs)。框架接口可对照 [Pi 1.0.0 Codemode 文档](https://github.com/earendil-works/pi/blob/v1.0.0/packages/coding-agent/docs/codemode.md)。
+对应实现见 [Pi 路径](../examples/pi-codemode-vs-ptc/demo/engine.mjs)与[编码路径](../examples/pi-codemode-vs-ptc/demo/coding-pi.mjs)。框架接口可对照 [Pi 1.0.0 Codemode 文档](https://github.com/earendil-works/pi/blob/v1.0.0/packages/coding-agent/docs/codemode.md)。
 
 ## DeepSeek Harness PTC：先生成接口 SDK，再让程序调用宿主
 
@@ -119,7 +119,7 @@ return { checkedCount: checked.length };
 
 `Promise.all()` 表达并发意图，实际执行数量还取决于宿主调度器。本文 PTC 子调用上限为 8，待处理容量为 64；排队容量与执行并发是两个参数。Node 子进程的能力则由后端和策略控制，不能与 QuickJS 的能力边界等同。本机 Windows 后端记录的文件沙箱 enforcement 为 partial。
 
-具体组合见 [PTC 实现](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/ptc.mjs)与[编码 PTC 实现](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/coding-ptc.mjs)，框架说明见 [Harness 工具运行时](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.0-rc.2/packages/core/tools/README.md)及 [Node PTC 执行器](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.0-rc.2/packages/ptc-runtime/ptc-runtime-node/README.md)。这里比较的是官方核心组件的组合，没有启动完整 Harness 产品或加载个人配置。
+具体组合见 [PTC 实现](../examples/pi-codemode-vs-ptc/demo/ptc.mjs)与[编码 PTC 实现](../examples/pi-codemode-vs-ptc/demo/coding-ptc.mjs)，框架说明见 [Harness 工具运行时](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.0-rc.2/packages/core/tools/README.md)及 [Node PTC 执行器](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.0-rc.2/packages/ptc-runtime/ptc-runtime-node/README.md)。这里比较的是官方核心组件的组合，没有启动完整 Harness 产品或加载个人配置。
 
 ## 融合：先发现工具，再现场生成小 SDK
 
@@ -145,7 +145,7 @@ return { checkedCount: checked.length };
 | 模型读取的结果 | 显式发现、程序输出和状态 | 程序输出和状态 | 发现历史、程序输出和状态 |
 | 后续决策 | 可继续调用 Codemode | 可继续调用 PTC | 可继续调用 PTC |
 
-实现入口是[订单融合](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/hybrid.mjs)与[编码融合](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/coding-hybrid.mjs)。可审计的真实请求体保存在附件中的 `wirePayload`，不通过宿主替模型补选接口。
+实现入口是[订单融合](../examples/pi-codemode-vs-ptc/demo/hybrid.mjs)与[编码融合](../examples/pi-codemode-vs-ptc/demo/coding-hybrid.mjs)。可审计的真实请求体保存在附件中的 `wirePayload`，不通过宿主替模型补选接口。
 
 ## 节省输入的前提：程序已经知道该怎样处理数据
 
@@ -185,7 +185,7 @@ return { checkedCount: checked.length };
 
 融合只生成三个业务工具的 SDK，大小为 3504 字节；全量 DSH PTC 在 60 工具时为 26458 字节。融合少输入 62.4%–65.0%，但九个组合中，全量 DSH PTC 的耗时中位数仍都更低。发现、编排、总结通常需要三轮，SDK 生成没有额外 LLM 请求，也不会把这三轮自动合并成两轮。
 
-两组数据独立统计。融合组沿用了暂停前的成功记录，发现提示经过校准，成功记录包含不同提示版本；它不是统一最终提示下重新跑出的矩阵。失败与校准记录单独保留，不进入上述成功任务中位数，也不代表包含重试的生产成本。完整条件见[订单证据说明](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/docs/matrix-evidence.md)和[融合采集说明](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/docs/hybrid-article.md)。
+两组数据独立统计。融合组沿用了暂停前的成功记录，发现提示经过校准，成功记录包含不同提示版本；它不是统一最终提示下重新跑出的矩阵。失败与校准记录单独保留，不进入上述成功任务中位数，也不代表包含重试的生产成本。完整条件见[订单证据说明](../examples/pi-codemode-vs-ptc/docs/matrix-evidence.md)和[融合采集说明](../examples/pi-codemode-vs-ptc/docs/hybrid-article.md)。
 
 ## 编码任务：输入与耗时开始取决于模型的修改策略
 
@@ -215,7 +215,7 @@ return { checkedCount: checked.length };
 
 这里的五个工具全部被融合选中，融合与全量 DSH PTC 的 SDK 相同，均为 3111 字节。**融合的表现不能归因于目录裁剪。** 初始提示、发现历史和执行器会影响模型如何组织操作；本次融合产生了更少往返的编排策略，但还没有证明是哪项因素导致。
 
-项目工具的并发上限为 8，同一文件编辑串行。每个编码执行阶段允许最多 24 轮，融合额外允许一个发现请求；融合实际最多 10 轮，没有触及该上限。宿主发现结果的格式兼容问题在校准后修正，只提取对象中已有的工具名，原失败附件保留，业务提示没有改变。Windows PTC 的部分文件沙箱提示也原样进入了模型上下文，可能影响其行为。完整记录与重建方式见[编码采集与验收说明](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/docs/coding-article.md)。
+项目工具的并发上限为 8，同一文件编辑串行。每个编码执行阶段允许最多 24 轮，融合额外允许一个发现请求；融合实际最多 10 轮，没有触及该上限。宿主发现结果的格式兼容问题在校准后修正，只提取对象中已有的工具名，原失败附件保留，业务提示没有改变。Windows PTC 的部分文件沙箱提示也原样进入了模型上下文，可能影响其行为。完整记录与重建方式见[编码采集与验收说明](../examples/pi-codemode-vs-ptc/docs/coding-article.md)。
 
 ## 这些结果怎样指导实现选择
 
@@ -239,21 +239,21 @@ return { checkedCount: checked.length };
 
 ## 代码、数据与复现
 
-文章中的表格和比例由[生成脚本](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/scripts/build-article.mjs)读取已冻结结果生成。三组结果分别存放，未合并成一个总体分数：
+文章中的表格和比例由[生成脚本](../examples/pi-codemode-vs-ptc/scripts/build-article.mjs)读取已冻结结果生成。三组结果分别存放，未合并成一个总体分数：
 
 | 数据组 | 逐次指标 | 聚合数据 | 完整记录索引 |
 |---|---|---|---|
-| 四路径订单 | [CSV](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/matrix/metrics.csv) | [summary](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/matrix/summary.json) | [manifest](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/matrix/manifest.json) |
-| 订单融合 | [CSV](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/hybrid/metrics.csv) | [summary](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/hybrid/summary.json) | [manifest](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/hybrid/manifest.json) |
-| 编码迁移 | [CSV](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/coding/metrics.csv) | [summary](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/coding/summary.json) | [manifest](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/results/coding/manifest.json) |
+| 四路径订单 | [CSV](../examples/pi-codemode-vs-ptc/results/matrix/metrics.csv) | [summary](../examples/pi-codemode-vs-ptc/results/matrix/summary.json) | [manifest](../examples/pi-codemode-vs-ptc/results/matrix/manifest.json) |
+| 订单融合 | [CSV](../examples/pi-codemode-vs-ptc/results/hybrid/metrics.csv) | [summary](../examples/pi-codemode-vs-ptc/results/hybrid/summary.json) | [manifest](../examples/pi-codemode-vs-ptc/results/hybrid/manifest.json) |
+| 编码迁移 | [CSV](../examples/pi-codemode-vs-ptc/results/coding/metrics.csv) | [summary](../examples/pi-codemode-vs-ptc/results/coding/summary.json) | [manifest](../examples/pi-codemode-vs-ptc/results/coding/manifest.json) |
 
 manifest 索引的 gzip 附件包含真实请求体、API usage、响应、生成代码和实际调用，编码附件还包含初始与最终源码。压缩只为减少仓库体积。公开记录替换了本机绝对路径，采集时的字节指标保留原值；字节不等于 token。API Key、Authorization header 和个人配置未上传。
 
 先核验已有证据，不需要在线 API Key：
 
 ```powershell
-git clone https://github.com/baidd1011/pi-codemode-vs-ptc.git
-cd pi-codemode-vs-ptc
+git clone https://github.com/baidd1011/tech-notes.git
+cd tech-notes/examples/pi-codemode-vs-ptc
 node scripts/verify-evidence.mjs
 node scripts/verify-matrix.mjs
 node scripts/verify-hybrid.mjs
@@ -278,4 +278,4 @@ node coding-matrix.mjs # 编码迁移
 
 在线运行会消耗 API 用量，结果写入本机 `demo/output/`。运行器按任务 ID 续跑；校准与失败的处理规则以各组说明为准。未形成完整记录的中断运行不计入完成任务统计，但可能已产生用量。本文输入与耗时统计也没有把所有校准重试成本摊入正式任务。
 
-原订单 Demo 可用 `node server.mjs` 打开 <http://127.0.0.1:4317/>，展示已有单组记录；矩阵和编码结果通过本文链接的附件查看，界面没有增加对应选择器。更多运行入口见 [Demo 说明](https://github.com/baidd1011/pi-codemode-vs-ptc/blob/f7e013415a6c29a9169c45018efa36258c4b0fe6/demo/README.md)。
+原订单 Demo 可用 `node server.mjs` 打开 <http://127.0.0.1:4317/>，展示已有单组记录；矩阵和编码结果通过本文链接的附件查看，界面没有增加对应选择器。更多运行入口见 [Demo 说明](../examples/pi-codemode-vs-ptc/demo/README.md)。

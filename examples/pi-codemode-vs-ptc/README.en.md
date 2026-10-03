@@ -1,5 +1,7 @@
 # From Tool Calls to Programmatic Orchestration: Pi Codemode, DeepSeek Harness PTC, and a Hybrid
 
+> Article index: [tech-notes](https://github.com/baidd1011/tech-notes) · [Chinese article](https://github.com/baidd1011/tech-notes/blob/main/articles/pi-codemode-vs-ptc.md). This directory contains the full experiment.
+
 [简体中文](README.md) | **English**
 
 When a model handles a task, how does it receive tool interfaces, and which tool results return to its context? These two boundaries account for substantial input overhead and affect how often the model must make another decision.
@@ -246,8 +248,8 @@ Manifest-indexed gzip attachments contain actual request bodies, API usage, resp
 Verify existing evidence without an online API key:
 
 ```powershell
-git clone https://github.com/baidd1011/pi-codemode-vs-ptc.git
-cd pi-codemode-vs-ptc
+git clone https://github.com/baidd1011/tech-notes.git
+cd tech-notes/examples/pi-codemode-vs-ptc
 node scripts/verify-evidence.mjs
 node scripts/verify-matrix.mjs
 node scripts/verify-hybrid.mjs
