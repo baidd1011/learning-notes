@@ -1,0 +1,325 @@
+{
+  "generatedAt": "2026-10-02T10:42:12.723Z",
+  "benchmarkRevision": "official-harness-ptc-four-paths-v3",
+  "model": "deepseek-flash",
+  "provider": {
+    "configured": true,
+    "provider": "DeepSeek official API",
+    "baseUrl": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "thinking": "disabled"
+  },
+  "options": {
+    "count": 12,
+    "toolCount": 18,
+    "delayMs": 25
+  },
+  "verified": true,
+  "environment": {
+    "os": "Windows",
+    "node": "24.14.1",
+    "pi": "1.0.0",
+    "harness": "0.2.0-rc.2",
+    "thinking": "disabled",
+    "temperature": 0,
+    "maxTokens": 6000,
+    "runOrder": [
+      "before",
+      "after",
+      "batch",
+      "ptc"
+    ]
+  },
+  "paths": {
+    "before": {
+      "mode": "direct",
+      "metrics": {
+        "modelRequests": 10,
+        "externalLlmRequests": 10,
+        "inputTokens": 67339,
+        "outputTokens": 976,
+        "cacheHitTokens": 61056,
+        "modelWallMs": 8626,
+        "wireRequestBytes": 303218,
+        "initialMcpTools": 18,
+        "initialMcpSchemaBytes": 8994,
+        "initialToolDeclarationBytes": 8994,
+        "initialSystemPromptBytes": 1479,
+        "surfacedResultBytes": 33403,
+        "accumulatedRequestBytes": 318069,
+        "mcpCalls": 9,
+        "rawMcpResultBytes": 33403,
+        "peakMcpConcurrency": 1,
+        "localWallMs": 9002
+      },
+      "validation": {
+        "passed": true,
+        "factsCorrect": true,
+        "toolCoverage": true,
+        "execution": {
+          "passed": true,
+          "noDuplicateOrUnneededCalls": true,
+          "noToolErrors": true,
+          "oneBusinessScript": true,
+          "compactOutput": true,
+          "discoveryComplete": true,
+          "expectedMcpCalls": 9,
+          "actualMcpCalls": 9
+        },
+        "expectedMatchedCount": 4,
+        "expectedTopOrderIds": [
+          "ORD-011",
+          "ORD-009",
+          "ORD-007"
+        ]
+      },
+      "report": {
+        "matchedCount": 4,
+        "top3": [
+          {
+            "orderId": "ORD-011",
+            "customer": "周先生",
+            "paidHoursAgo": 173,
+            "amount": 536,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已超173小时仍未发货，请立即联系杭州仓优先出库并主动告知客户物流进度。"
+          },
+          {
+            "orderId": "ORD-009",
+            "customer": "林同学",
+            "paidHoursAgo": 147,
+            "amount": 462,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已超147小时仍未发货，请催促杭州仓尽快安排发货并同步运单号。"
+          },
+          {
+            "orderId": "ORD-007",
+            "customer": "周先生",
+            "paidHoursAgo": 121,
+            "amount": 388,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已超121小时仍未发货，请核实杭州仓库存并尽快出库，必要时向客户说明延迟。"
+          }
+        ]
+      }
+    },
+    "batch": {
+      "mode": "direct-batch",
+      "metrics": {
+        "modelRequests": 3,
+        "externalLlmRequests": 3,
+        "inputTokens": 17066,
+        "outputTokens": 871,
+        "cacheHitTokens": 10368,
+        "modelWallMs": 4324,
+        "wireRequestBytes": 75672,
+        "initialMcpTools": 18,
+        "initialMcpSchemaBytes": 8994,
+        "initialToolDeclarationBytes": 8994,
+        "initialSystemPromptBytes": 1535,
+        "surfacedResultBytes": 33403,
+        "accumulatedRequestBytes": 76332,
+        "mcpCalls": 9,
+        "rawMcpResultBytes": 33403,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 4456
+      },
+      "validation": {
+        "passed": true,
+        "factsCorrect": true,
+        "toolCoverage": true,
+        "execution": {
+          "passed": true,
+          "noDuplicateOrUnneededCalls": true,
+          "noToolErrors": true,
+          "oneBusinessScript": true,
+          "compactOutput": true,
+          "discoveryComplete": true,
+          "expectedMcpCalls": 9,
+          "actualMcpCalls": 9
+        },
+        "expectedMatchedCount": 4,
+        "expectedTopOrderIds": [
+          "ORD-011",
+          "ORD-009",
+          "ORD-007"
+        ]
+      },
+      "report": {
+        "matchedCount": 4,
+        "top3": [
+          {
+            "orderId": "ORD-011",
+            "customer": "周先生",
+            "paidHoursAgo": 173,
+            "amount": 536,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已超173小时仍未发货，请立即联系杭州仓核实库存并优先安排出库，同步向客户说明延迟原因。"
+          },
+          {
+            "orderId": "ORD-009",
+            "customer": "林同学",
+            "paidHoursAgo": 147,
+            "amount": 462,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已超147小时仍未发货，请催促杭州仓尽快拣货发货，并主动告知客户预计发货时间。"
+          },
+          {
+            "orderId": "ORD-007",
+            "customer": "周先生",
+            "paidHoursAgo": 121,
+            "amount": 388,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已超121小时仍未发货，请跟进杭州仓处理进度，必要时升级为加急订单。"
+          }
+        ]
+      }
+    },
+    "after": {
+      "mode": "codemode",
+      "metrics": {
+        "modelRequests": 3,
+        "externalLlmRequests": 3,
+        "inputTokens": 6086,
+        "outputTokens": 852,
+        "cacheHitTokens": 4864,
+        "modelWallMs": 3982,
+        "wireRequestBytes": 23167,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 1329,
+        "initialSystemPromptBytes": 3262,
+        "surfacedResultBytes": 3622,
+        "accumulatedRequestBytes": 28002,
+        "mcpCalls": 9,
+        "rawMcpResultBytes": 33403,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 4164
+      },
+      "validation": {
+        "passed": true,
+        "factsCorrect": true,
+        "toolCoverage": true,
+        "execution": {
+          "passed": true,
+          "noDuplicateOrUnneededCalls": true,
+          "noToolErrors": true,
+          "oneBusinessScript": true,
+          "compactOutput": true,
+          "discoveryComplete": true,
+          "expectedMcpCalls": 9,
+          "actualMcpCalls": 9
+        },
+        "expectedMatchedCount": 4,
+        "expectedTopOrderIds": [
+          "ORD-011",
+          "ORD-009",
+          "ORD-007"
+        ]
+      },
+      "report": {
+        "matchedCount": 4,
+        "top3": [
+          {
+            "orderId": "ORD-011",
+            "customer": "周先生",
+            "paidHoursAgo": 173,
+            "amount": 536,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已等待173小时仍未发货，请杭州仓优先安排出库并同步物流单号。"
+          },
+          {
+            "orderId": "ORD-009",
+            "customer": "林同学",
+            "paidHoursAgo": 147,
+            "amount": 462,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已等待147小时仍未发货，请杭州仓优先安排出库并同步物流单号。"
+          },
+          {
+            "orderId": "ORD-007",
+            "customer": "周先生",
+            "paidHoursAgo": 121,
+            "amount": 388,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已等待121小时仍未发货，请杭州仓优先安排出库并同步物流单号。"
+          }
+        ]
+      }
+    },
+    "ptc": {
+      "mode": "ptc",
+      "metrics": {
+        "modelRequests": 2,
+        "externalLlmRequests": 2,
+        "inputTokens": 7856,
+        "outputTokens": 661,
+        "cacheHitTokens": 4096,
+        "modelWallMs": 3299,
+        "wireRequestBytes": 31050,
+        "initialMcpTools": 0,
+        "initialMcpSchemaBytes": 0,
+        "initialToolDeclarationBytes": 2128,
+        "initialSdkDeclarationBytes": 9538,
+        "initialSystemPromptBytes": 11391,
+        "surfacedResultBytes": 1031,
+        "accumulatedRequestBytes": 31402,
+        "mcpCalls": 9,
+        "rawMcpResultBytes": 33403,
+        "peakMcpConcurrency": 8,
+        "localWallMs": 3757
+      },
+      "validation": {
+        "passed": true,
+        "factsCorrect": true,
+        "toolCoverage": true,
+        "execution": {
+          "passed": true,
+          "noDuplicateOrUnneededCalls": true,
+          "noToolErrors": true,
+          "oneBusinessScript": true,
+          "compactOutput": true,
+          "discoveryComplete": true,
+          "expectedMcpCalls": 9,
+          "actualMcpCalls": 9
+        },
+        "sdkLoaded": true,
+        "expectedMatchedCount": 4,
+        "expectedTopOrderIds": [
+          "ORD-011",
+          "ORD-009",
+          "ORD-007"
+        ]
+      },
+      "report": {
+        "matchedCount": 4,
+        "top3": [
+          {
+            "orderId": "ORD-011",
+            "customer": "周先生",
+            "paidHoursAgo": 173,
+            "amount": 536,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已等待173小时仍未发货，请杭州仓优先安排出库并同步物流单号。"
+          },
+          {
+            "orderId": "ORD-009",
+            "customer": "林同学",
+            "paidHoursAgo": 147,
+            "amount": 462,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已等待147小时仍未发货，请杭州仓优先安排出库并同步物流单号。"
+          },
+          {
+            "orderId": "ORD-007",
+            "customer": "周先生",
+            "paidHoursAgo": 121,
+            "amount": 388,
+            "warehouse": "杭州仓",
+            "suggestion": "支付已等待121小时仍未发货，请杭州仓优先安排出库并同步物流单号。"
+          }
+        ]
+      }
+    }
+  }
+}

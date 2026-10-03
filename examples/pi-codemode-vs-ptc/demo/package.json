@@ -1,0 +1,16 @@
+{
+  "name": "pi-mcp-before-after-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "demo": "node run.mjs",
+    "verify": "node verify.mjs",
+    "online": "node online.mjs",
+    "setup-ptc": "node setup-ptc.mjs",
+    "verify-ptc": "node verify-ptc.mjs",
+    "check-api": "node online.mjs --check"
+  },
+  "engines": { "node": ">=22.19.0" },
+  "dependencies": { "@earendil-works/pi-coding-agent": "1.0.0" }
+}

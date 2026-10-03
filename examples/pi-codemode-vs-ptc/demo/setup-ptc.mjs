@@ -1,0 +1,14 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { spawn } from 'node:child_process';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const folder = fileURLToPath(new URL('./.runtime/dsh-deps/', import.meta.url));
+await mkdir(folder, { recursive: true });
+await writeFile(join(folder, 'package.json'), await readFile(new URL('./ptc-dependencies.json', import.meta.url)));
+await writeFile(join(folder, 'package-lock.json'), await readFile(new URL('./ptc-package-lock.json', import.meta.url)));
+const npmCli = process.env.npm_execpath || join(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
+if (!existsSync(npmCli)) throw new Error('找不到 npm CLI，请通过 npm run setup-ptc 启动。');
+const child = spawn(process.execPath, [npmCli, 'ci', '--prefix', folder, '--no-audit', '--no-fund'], { stdio: 'inherit', windowsHide: true });
+child.on('error', error => { console.error(error.message); process.exitCode = 1; });
+child.on('exit', code => { process.exitCode = code ?? 1; });

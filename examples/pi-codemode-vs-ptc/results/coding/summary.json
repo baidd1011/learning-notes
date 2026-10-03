@@ -1,0 +1,458 @@
+{
+  "tasks": 27,
+  "passed": 24,
+  "retainedCalibration": 5,
+  "aggregation": "median of all three primary tasks per group, including real task failures; host discovery format calibration excluded and separately retained",
+  "groups": [
+    {
+      "count": 3,
+      "mode": "codemode",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 12,
+        "inputTokens": 37392,
+        "outputTokens": 2188,
+        "cacheHitTokens": 32640,
+        "localWallMs": 15436,
+        "modelWallMs": 14187,
+        "mcpCalls": 18,
+        "surfacedResultBytes": 9789
+      },
+      "ranges": {
+        "modelRequests": [
+          11,
+          13
+        ],
+        "inputTokens": [
+          29761,
+          51032
+        ],
+        "outputTokens": [
+          2060,
+          2442
+        ],
+        "cacheHitTokens": [
+          25088,
+          44416
+        ],
+        "localWallMs": [
+          13234,
+          15563
+        ],
+        "modelWallMs": [
+          12048,
+          14262
+        ],
+        "mcpCalls": [
+          17,
+          19
+        ],
+        "surfacedResultBytes": [
+          9074,
+          15306
+        ]
+      }
+    },
+    {
+      "count": 3,
+      "mode": "ptc",
+      "tasks": 3,
+      "passed": 1,
+      "medians": {
+        "modelRequests": 24,
+        "inputTokens": 150886,
+        "outputTokens": 2266,
+        "cacheHitTokens": 142715,
+        "localWallMs": 26563,
+        "modelWallMs": 20159,
+        "mcpCalls": 29,
+        "surfacedResultBytes": 25502
+      },
+      "ranges": {
+        "modelRequests": [
+          9,
+          24
+        ],
+        "inputTokens": [
+          29755,
+          155156
+        ],
+        "outputTokens": [
+          1933,
+          2280
+        ],
+        "cacheHitTokens": [
+          25600,
+          147323
+        ],
+        "localWallMs": [
+          12597,
+          26844
+        ],
+        "modelWallMs": [
+          9687,
+          20493
+        ],
+        "mcpCalls": [
+          19,
+          29
+        ],
+        "surfacedResultBytes": [
+          6084,
+          26320
+        ]
+      }
+    },
+    {
+      "count": 3,
+      "mode": "hybrid",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 9,
+        "inputTokens": 32260,
+        "outputTokens": 1879,
+        "cacheHitTokens": 28672,
+        "localWallMs": 14325,
+        "modelWallMs": 11688,
+        "mcpCalls": 18,
+        "surfacedResultBytes": 7935
+      },
+      "ranges": {
+        "modelRequests": [
+          6,
+          10
+        ],
+        "inputTokens": [
+          19283,
+          32636
+        ],
+        "outputTokens": [
+          1775,
+          2328
+        ],
+        "cacheHitTokens": [
+          15744,
+          28800
+        ],
+        "localWallMs": [
+          10188,
+          15739
+        ],
+        "modelWallMs": [
+          8229,
+          12721
+        ],
+        "mcpCalls": [
+          17,
+          20
+        ],
+        "surfacedResultBytes": [
+          6332,
+          7964
+        ]
+      }
+    },
+    {
+      "count": 8,
+      "mode": "codemode",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 12,
+        "inputTokens": 52055,
+        "outputTokens": 2546,
+        "cacheHitTokens": 45056,
+        "localWallMs": 15963,
+        "modelWallMs": 14652,
+        "mcpCalls": 32,
+        "surfacedResultBytes": 18943
+      },
+      "ranges": {
+        "modelRequests": [
+          12,
+          13
+        ],
+        "inputTokens": [
+          40624,
+          60086
+        ],
+        "outputTokens": [
+          2391,
+          2738
+        ],
+        "cacheHitTokens": [
+          34304,
+          52864
+        ],
+        "localWallMs": [
+          15915,
+          16622
+        ],
+        "modelWallMs": [
+          14328,
+          14864
+        ],
+        "mcpCalls": [
+          31,
+          33
+        ],
+        "surfacedResultBytes": [
+          12916,
+          19325
+        ]
+      }
+    },
+    {
+      "count": 8,
+      "mode": "ptc",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 8,
+        "inputTokens": 31809,
+        "outputTokens": 2342,
+        "cacheHitTokens": 29696,
+        "localWallMs": 13591,
+        "modelWallMs": 10567,
+        "mcpCalls": 32,
+        "surfacedResultBytes": 11114
+      },
+      "ranges": {
+        "modelRequests": [
+          7,
+          9
+        ],
+        "inputTokens": [
+          24901,
+          39008
+        ],
+        "outputTokens": [
+          2053,
+          2521
+        ],
+        "cacheHitTokens": [
+          21888,
+          36864
+        ],
+        "localWallMs": [
+          11645,
+          16018
+        ],
+        "modelWallMs": [
+          9213,
+          12804
+        ],
+        "mcpCalls": [
+          31,
+          35
+        ],
+        "surfacedResultBytes": [
+          8919,
+          12829
+        ]
+      }
+    },
+    {
+      "count": 8,
+      "mode": "hybrid",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 6,
+        "inputTokens": 24076,
+        "outputTokens": 2074,
+        "cacheHitTokens": 19584,
+        "localWallMs": 11786,
+        "modelWallMs": 9573,
+        "mcpCalls": 29,
+        "surfacedResultBytes": 10860
+      },
+      "ranges": {
+        "modelRequests": [
+          6,
+          6
+        ],
+        "inputTokens": [
+          23427,
+          24229
+        ],
+        "outputTokens": [
+          1958,
+          2149
+        ],
+        "cacheHitTokens": [
+          19200,
+          19712
+        ],
+        "localWallMs": [
+          11515,
+          12303
+        ],
+        "modelWallMs": [
+          9540,
+          10327
+        ],
+        "mcpCalls": [
+          29,
+          30
+        ],
+        "surfacedResultBytes": [
+          10771,
+          11466
+        ]
+      }
+    },
+    {
+      "count": 16,
+      "mode": "codemode",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 16,
+        "inputTokens": 109564,
+        "outputTokens": 3106,
+        "cacheHitTokens": 97920,
+        "localWallMs": 20892,
+        "modelWallMs": 19331,
+        "mcpCalls": 78,
+        "surfacedResultBytes": 34492
+      },
+      "ranges": {
+        "modelRequests": [
+          11,
+          21
+        ],
+        "inputTokens": [
+          44693,
+          157358
+        ],
+        "outputTokens": [
+          1997,
+          4268
+        ],
+        "cacheHitTokens": [
+          36224,
+          143616
+        ],
+        "localWallMs": [
+          13804,
+          27127
+        ],
+        "modelWallMs": [
+          12473,
+          25270
+        ],
+        "mcpCalls": [
+          56,
+          139
+        ],
+        "surfacedResultBytes": [
+          21804,
+          38708
+        ]
+      }
+    },
+    {
+      "count": 16,
+      "mode": "ptc",
+      "tasks": 3,
+      "passed": 2,
+      "medians": {
+        "modelRequests": 22,
+        "inputTokens": 286101,
+        "outputTokens": 5969,
+        "cacheHitTokens": 271616,
+        "localWallMs": 37594,
+        "modelWallMs": 30632,
+        "mcpCalls": 170,
+        "surfacedResultBytes": 67115
+      },
+      "ranges": {
+        "modelRequests": [
+          21,
+          24
+        ],
+        "inputTokens": [
+          283111,
+          420618
+        ],
+        "outputTokens": [
+          5682,
+          6037
+        ],
+        "cacheHitTokens": [
+          268800,
+          393216
+        ],
+        "localWallMs": [
+          36943,
+          38062
+        ],
+        "modelWallMs": [
+          30595,
+          31602
+        ],
+        "mcpCalls": [
+          109,
+          200
+        ],
+        "surfacedResultBytes": [
+          45826,
+          97107
+        ]
+      }
+    },
+    {
+      "count": 16,
+      "mode": "hybrid",
+      "tasks": 3,
+      "passed": 3,
+      "medians": {
+        "modelRequests": 8,
+        "inputTokens": 46860,
+        "outputTokens": 1950,
+        "cacheHitTokens": 39040,
+        "localWallMs": 14008,
+        "modelWallMs": 11441,
+        "mcpCalls": 75,
+        "surfacedResultBytes": 23257
+      },
+      "ranges": {
+        "modelRequests": [
+          7,
+          9
+        ],
+        "inputTokens": [
+          38043,
+          49011
+        ],
+        "outputTokens": [
+          1745,
+          2307
+        ],
+        "cacheHitTokens": [
+          30080,
+          42368
+        ],
+        "localWallMs": [
+          11769,
+          15576
+        ],
+        "modelWallMs": [
+          9209,
+          12643
+        ],
+        "mcpCalls": [
+          71,
+          88
+        ],
+        "surfacedResultBytes": [
+          18607,
+          24185
+        ]
+      }
+    }
+  ]
+}
