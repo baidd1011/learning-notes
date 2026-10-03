@@ -1,6 +1,6 @@
 # 从工具调用到程序编排：Pi Codemode、DeepSeek Harness PTC 与融合实现
 
-> 发布日期：2026-10-02 · 最近核对：2026-10-03 · 迁移日期：2026-10-03 · [原文源提交 `f7e0134`](https://github.com/baidd1011/tech-notes/commit/f7e013415a6c29a9169c45018efa36258c4b0fe6)
+> 发布日期：2026-10-02 · 最近核对：2026-10-03 · 迁移日期：2026-10-03 · [原文源提交 `f7e0134`](https://github.com/baidd1011/learning-notes/commit/f7e013415a6c29a9169c45018efa36258c4b0fe6)
 
 **简体中文** | [English](../examples/pi-codemode-vs-ptc/README.en.md)
 
@@ -252,8 +252,8 @@ manifest 索引的 gzip 附件包含真实请求体、API usage、响应、生�
 先核验已有证据，不需要在线 API Key：
 
 ```powershell
-git clone https://github.com/baidd1011/tech-notes.git
-cd tech-notes/examples/pi-codemode-vs-ptc
+git clone https://github.com/baidd1011/learning-notes.git
+cd learning-notes/examples/pi-codemode-vs-ptc
 node scripts/verify-evidence.mjs
 node scripts/verify-matrix.mjs
 node scripts/verify-hybrid.mjs
