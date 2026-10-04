@@ -4,7 +4,7 @@
 
 | 发布日期 | 文章 | 内容简介 |
 | --- | --- | --- |
-| 2026-10-04 | [编码 Agent 如何压缩上下文：Claude Code、DSH 与 Pi 的源码设计](articles/agent-context-compaction.md) | 分析压缩阈值、工具输出清理、摘要与原文保留、状态恢复和提交边界，并对照 Learn Claude Code 的教学实现。 |
+| 2026-10-04 | [编码 Agent 如何压缩上下文：Claude Code、DSH 与 Pi 的源码设计](articles/agent-context-compaction.md) | 分析三者的压缩阈值、工具输出清理、摘要与原文保留、状态恢复和提交边界。 |
 | 2026-10-03 | [Jev 决策模型入门：基本原理与输入输出示例](articles/jev-decision-model-guide.md) | 解释决策模型、RLCD 与三种基础题型，用完整 JSON 展示输入、输出及概率、评分的读取方式。 |
 | 2026-10-02 | [从工具调用到程序编排：Pi Codemode、DeepSeek Harness PTC 与融合实现](articles/pi-codemode-vs-ptc.md) | 结合真实 MCP 调用和合成业务任务，分析按需发现、SDK 预载、程序编排的机制与实验边界。 |
 

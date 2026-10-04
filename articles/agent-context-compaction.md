@@ -4,7 +4,7 @@
 
 编码 Agent 连续读文件、搜索代码和运行测试时，工具输出会不断进入消息历史。上下文窗口有限，任务却可能持续数百个步骤。Agent 怎样腾出空间，同时记住用户的限制、已经做过的修改和下一步工作？
 
-本文从源码拆解三种实现：Claude Code 2.1.88 的公开 source map 提取镜像、DeepSeek Harness（下文称 DSH）的压缩插件，以及 Pi coding-agent 的会话压缩。最后结合 `learn-claude-code` 的教学实现，整理可以迁移到自己 Harness 中的设计原则。
+本文从源码拆解三种实现：Claude Code 2.1.88 的公开 source map 提取镜像、DeepSeek Harness（下文称 DSH）的压缩插件，以及 Pi coding-agent 的会话压缩，并整理可以迁移到自己 Harness 中的设计原则。
 
 核心问题不只是“怎样把文字变短”，还包括：哪些内容可以移出当前请求，怎样保存恢复入口，何时调用摘要模型，以及怎样确认摘要不会覆盖刚发生的新工作。
 
@@ -43,7 +43,6 @@ flowchart LR
 | Claude Code | 声明从 npm `@anthropic-ai/claude-code@2.1.88` 的 `cli.js.map` 提取的公开镜像 | [`c8cd253`][claude-repo] |
 | DSH | `deepseek-ai/deepseek-harness`，`master` | [`5badb150`][dsh-repo] |
 | Pi | `earendil-works/pi`，`main`，coding-agent 包元数据为 `1.0.2` | [`20038712`][pi-repo] |
-| Learn Claude Code | 当前主线 `s08_context_compact`，旧版章节为 s06 | [`ce8f9f1`][learn-repo] |
 
 Claude 镜像不是官方发布的完整源码仓库。本次检查了提取内容，未重新验证原始 npm 包与 source map 的完整哈希对应关系。镜像还缺少部分内部模块，涉及这些模块时，本文只描述可核对的调用位置和开关，不补写内部算法。[镜像来源说明][claude-readme]
 
@@ -236,29 +235,7 @@ Pi 的上下文溢出恢复会省略失败尝试的相关可见消息，尝试�
 
 并发摘要提交要检查覆盖边界：旧任务不能把已经推进的压缩起点倒退。生成摘要的成本被提前支付，而不是消失。与 Claude Session Memory 相比，前者准备可提交的摘要任务，后者维护后台会话笔记并组合未总结尾部。[Durable 文档][pi-durable]
 
-## 6. Learn Claude Code：把机制简化成四步教学管线
-
-当前主线是 s08，旧版 s06 的三层描述仍保留在迁移轨道中。使用这份教程时应先确认章节版本，它的固定数值不能直接套到 Claude Code 产品。[课程版本说明][learn-readme]
-
-当前实现的顺序是：
-
-```text
-每轮：最新工具批次预算 → 历史中段归档
-超限：旧工具结果转存 → 必要时转存大结果预览
-仍超限：调用模型总结历史
-```
-
-最新工具批次超过 200,000 字符时，优先转存其中超过 30,000 字符的结果，留下路径与 2,000 字符预览。消息超过 50 条时，通常保留开头三条、尾部 46 条和一个归档标记，并调整工具配对边界。[教学管线][learn-doc]
-
-上下文仍超过 50,000 字符才执行 microcompact：保护未读的新结果，保留最近三个已读结果，将较早长结果变成恢复路径，尽量降到 40,000 字符。仍不足时调用摘要模型，自动完整压缩使用一条带当前请求、摘要和 transcript 路径的消息替换历史。[教学源码][learn-code]
-
-这里的 50,000 是 JSON 序列化后的字符数，不是 token 数。真正 API 超窗时仍有一次响应式恢复，保留约五条近期消息。
-
-另一个值得借鉴的细节是独立传递 `active_request`：Anthropic 消息里的工具结果也用 `role=user`，不能把最后一条 user 消息直接当成最新人类要求。压缩消息明确分开当前请求与仅供参考的摘要，减少用户原话被总结丢失、历史内容被当成新指令的问题。[请求与摘要边界][learn-code]
-
-可恢复也有范围：后一次 transcript 保存的是当时的消息视图，可能已经包含旧结果路径或归档标记。恢复完整细节需要结合工具输出文件和更早的 transcript；工具本身在进入这条管线前已截断的输出，也不会被后来保存操作恢复。
-
-## 7. 放在同一预算下比较，不能把阈值当成胜负
+## 6. 放在同一预算下比较，不能把阈值当成胜负
 
 下表统一假设窗口为 200K。Claude 另假设模型最大输出至少 20K；DSH 另假设有效输出预留为 20K。三者计量方法和预留含义不同，因此表格只说明配置算式。
 
@@ -273,7 +250,7 @@ Pi 的上下文溢出恢复会省略失败尝试的相关可见消息，尝试�
 
 缓存也要分清阶段。Claude 的 fork 和 DSH 的前缀重放主要尝试降低摘要生成阶段的成本；替换历史后，下一次主请求的前缀已经变化。不能从“摘要调用命中缓存”推导“压缩后的主请求缓存全部不变”。
 
-## 8. 自己实现时，优先保证哪些边界
+## 7. 自己实现时，优先保证哪些边界
 
 这些实现提供的共同启发，是把压缩作为上下文管理的一条完整执行路径，而不是额外加一个总结 prompt。
 
@@ -295,7 +272,6 @@ Pi 的上下文溢出恢复会省略失败尝试的相关可见消息，尝试�
 | Claude Code | [query][claude-query] → [autoCompact][claude-auto] → [microCompact][claude-micro] → [compact][claude-compact] → [Session Memory 压缩][claude-memory-compact] |
 | DSH | [配置][dsh-config] → [范围选择][dsh-region] → [摘要请求][dsh-summary] → [生命周期与提交][dsh-basic] |
 | Pi | [compaction][pi-compact] → [序列化][pi-utils] → [会话重建][pi-session] → [agent-session][pi-agent] |
-| Learn Claude Code | [s08 中文讲解][learn-doc] → [code.py][learn-code] |
 
 [claude-repo]: https://github.com/Exhen/claude-code-2.1.88/tree/c8cd253554319f32ff64ff7000636199f720c9bc
 [claude-readme]: https://github.com/Exhen/claude-code-2.1.88/blob/c8cd253554319f32ff64ff7000636199f720c9bc/README.md
@@ -321,7 +297,3 @@ Pi 的上下文溢出恢复会省略失败尝试的相关可见消息，尝试�
 [pi-agent]: https://github.com/earendil-works/pi/blob/200387122ca450d6387f033949423114a270b96c/packages/coding-agent/src/core/agent-session.ts
 [pi-session]: https://github.com/earendil-works/pi/blob/200387122ca450d6387f033949423114a270b96c/packages/coding-agent/src/core/session-manager.ts
 [pi-durable]: https://github.com/earendil-works/pi/blob/200387122ca450d6387f033949423114a270b96c/packages/durable/README.md
-[learn-repo]: https://github.com/shareAI-lab/learn-claude-code/tree/ce8f9f186058939da54c9d6fead78dfb5d0fd6c3
-[learn-readme]: https://github.com/shareAI-lab/learn-claude-code/blob/ce8f9f186058939da54c9d6fead78dfb5d0fd6c3/README.md
-[learn-doc]: https://github.com/shareAI-lab/learn-claude-code/blob/ce8f9f186058939da54c9d6fead78dfb5d0fd6c3/s08_context_compact/README.zh.md
-[learn-code]: https://github.com/shareAI-lab/learn-claude-code/blob/ce8f9f186058939da54c9d6fead78dfb5d0fd6c3/s08_context_compact/code.py
